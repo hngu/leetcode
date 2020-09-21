@@ -98,7 +98,7 @@ var carPooling = function(trips, capacity) {
 };
 ```
 
-** More Efficient Solution:**
+**More Efficient Solution:**
 ```
 /**
  * @param {number[][]} trips
