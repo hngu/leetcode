@@ -50,6 +50,7 @@ Therefore, you can't travel around the circuit once no matter where you start.
 ### Solution:
 - My solution is naive, runs in O(n^2) time
 - There is a faster, more efficient way that runs in O(n) time, O(1) space.
+- You can solve it by thinking about Kadane's algorithm, or max subarray sum.
 ```
 /**
  * @param {number[]} gas
