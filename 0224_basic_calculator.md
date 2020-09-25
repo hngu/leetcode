@@ -27,7 +27,9 @@ Do not use the eval built-in library function.
 
 ### Solution:
 - Use a stack
-- there is a case that you need to account for.
+- Since there are parentheses, you have to evaluate those first before you evaluate the main expression.
+- **Holy cow** - there is a case that you need to account for. Numbers can be more than 2 digits so when you are parsing them character by character, you have
+to combine characters of a number. DAMN.
 ```
 /**
  * @param {string} s
