@@ -34,6 +34,10 @@ You may assume the numbers in the Teemo's attacking time series and his poisonin
 ### Solution:
 - The intuition: when there are time intervals involved, think about interval problems we solved before. I did not solve this well without this intuition.
 - Draw out the time interval and figure out the poison length.
+- Here, we keep track of the start time and end time of the poison status.
+- If the hero gets infected before the end time of the poison status, then we update the end time of the poison status.
+- If the hero gets infected after, we get the difference of the start and end time of the previous poison status and add it to total. Then we start a new
+poison status interval.
 
 ```
 /**
@@ -57,6 +61,48 @@ var findPoisonedDuration = function(timeSeries, duration) {
     });
     
     total += endTime - startTime;
+    
+    return total;
+};
+```
+
+Another way of thinking about this is the following diagram:
+```
+[1,2,3,4,5]
+5
+
+1->         5
+   2->       6
+      3->     7
+         4->   8
+            5-> 9
+```
+
+- If I am infected at 1, it will last til 5.
+- But if I am infected at 2, then it will last til 6.
+- To get the total duration when infected in 1 and 2, just subtract the end points, (5 from 6) to get the new additive to the duration.
+- The time interval may start from zero, so need to account for that.
+```
+/**
+ * @param {number[]} timeSeries
+ * @param {number} duration
+ * @return {number}
+ */
+var findPoisonedDuration = function(timeSeries, duration) {
+    let total = 0;
+    let poisonEndTime;
+    
+    
+    timeSeries.forEach(time => {
+        if (poisonEndTime < time || poisonEndTime === undefined) {
+            total += duration;
+            poisonEndTime = time + duration - 1;
+        } else {
+            total += (time + duration - 1) - poisonEndTime;
+            poisonEndTime = time + duration - 1;
+        }   
+    });
+    
     
     return total;
 };
