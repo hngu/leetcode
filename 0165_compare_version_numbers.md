@@ -49,7 +49,7 @@ Version strings do not start or end with dots, and they will not be two consecut
 
 ### Solution
 - Ugh, I redeclared let version1!
-
+```
 /**
  * @param {string} version1
  * @param {string} version2
