@@ -30,7 +30,7 @@ Output: false
 ```
 
 ### Solution:
-- Things I messed up:
+* Things I messed up:
 -- splice takes an index, and number of elements to delete. It then returns the deleted elements. Do not chain it with split or join! It will use the 
 deleted chars.
 -- join('') returns the joined array elements. You need to store that somewhere! I did not assign a variable to it.
