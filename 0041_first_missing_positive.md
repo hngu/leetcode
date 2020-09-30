@@ -24,7 +24,7 @@ Follow up:
 Your algorithm should run in O(n) time and uses constant extra space.
 
 ### Solution:
-This was hard. My solution did not work for [-999, -998]. I also did not use constant extra space.
+This was hard. My solution did not work for [-999, -998, 1]. I also did not use constant extra space.
 
 ```
 /**
@@ -43,7 +43,7 @@ var firstMissingPositive = function(nums) {
     if (min !== 1 && !lookup[1]) {
         return 1;
     }
-    // min could be -999. Then the array could be [-999, -998]
+    // min could be -999. Then the array could be [-999, -998, 1]. My for loop will never reach 1.
     min = 1;
     
     for (let i = 0; i < nums.length; i++) {
