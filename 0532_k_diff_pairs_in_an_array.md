@@ -81,3 +81,28 @@ var findPairs = function(nums, k) {
     return result.size;
 };
 ```
+
+Here is a cleaner, smaller solution of the above:
+```
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findPairs = function(nums, k) {
+    const seen = new Set();
+    const higher_unique_number = new Set();
+    
+    nums.forEach(num => {
+        if (seen.has(num - k)) {
+            higher_unique_number.add(num - k);
+        }
+        if (seen.has(num + k)) {
+            higher_unique_number.add(num);
+        }
+        seen.add(num);
+    });
+    
+    return higher_unique_number.size;
+};
+```
