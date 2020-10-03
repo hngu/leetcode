@@ -106,3 +106,48 @@ var findPairs = function(nums, k) {
     return higher_unique_number.size;
 };
 ```
+
+Here is one that takes n log n time as described above, but we still need O(n) space to store the unique pairs:
+```
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findPairs = function(nums, k) {
+    const search = (arr, target) => {
+        let start = 0;
+        let end = arr.length - 1;
+        
+        while (start <= end) {
+            let mid = start + Math.floor((end - start) / 2);
+            let current = arr[mid];
+            
+            if (current === target) {
+                return mid;
+            }
+            
+            if (current < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        
+        return -1;
+    }
+    
+    nums = nums.sort((a, b) => a - b);
+    let result = new Set();
+    
+    nums.forEach((num, index) => {
+        let sum = num + k;
+        let found = search(nums, sum);
+        if (found < 0 || index === found) {
+            return;
+        }
+        result.add(`${num}_${sum}`);
+    });
+    return result.size;
+};
+```
