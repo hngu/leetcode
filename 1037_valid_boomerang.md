@@ -24,7 +24,7 @@ points[i].length == 2
 
 ### Solution:
 - If all the numbers have the same slope, then it is not a valid boomerang!
-- BEWARE: if the points are equal, then that is still not a bommerang!
+- BEWARE: if the points are equal, then that is still not a bommerang! So, they must all be different points.
 
 ```
 /**
