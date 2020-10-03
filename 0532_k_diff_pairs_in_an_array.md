@@ -47,6 +47,8 @@ Output: 2
 - What i did was create a map of numbers to the list of numbers themselves.
 - Then I iterate through the numbers and add k to each number. If the sum appears in the map, then it is a legit pair. Add it to the set.
 - Watch out: if k = 0 and the nums is: [1,2,3,4,5], you can't say [1, 1]. So be careful of that! (I luckily was aware of this)
+- **Another Way** is to sort the array (n log n) then for each num in nums, find num + k using binary search. Binary search is (log n) and doing it for each number is n log n
+but with constant space.
 
 ```
 /**
