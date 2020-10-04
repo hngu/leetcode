@@ -1,0 +1,108 @@
+### 994. Rotting Oranges
+
+In a given grid, each cell can have one of three values:
+
+the value 0 representing an empty cell;
+the value 1 representing a fresh orange;
+the value 2 representing a rotten orange.
+Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.
+
+Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.
+
+**Example 1:**
+```
+Input: [[2,1,1],[1,1,0],[0,1,1]]
+Output: 4
+```
+
+**Example 2:**
+```
+Input: [[2,1,1],[0,1,1],[1,0,1]]
+Output: -1
+Explanation:  The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
+```
+
+**Example 3:**
+```
+Input: [[0,2]]
+Output: 0
+Explanation:  Since there are already no fresh oranges at minute 0, the answer is just 0.
+``` 
+
+**Note:**
+```
+1 <= grid.length <= 10
+1 <= grid[0].length <= 10
+grid[i][j] is only 0, 1, or 2.
+```
+
+### Solution:
+- Push all rotting oranges into the bfs array
+- If not rotting oranges, return 0.
+- For each rotting orange in the dfs array:
+- Take all of its neighbors
+- Rot them
+- Then push those rotting oranges into the bfs array
+- Increment the count only after you rot all neighboring oranges. I probably use a tuple that stores the time with the rotting orange
+- When the bfs array is empty, we have to have one more matrix loop to see if there are anymore fresh oranges. If there are, then return -1.
+- Return the time
+
+```
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var orangesRotting = function(grid) {
+    // idea: use bfs
+    // create a queue with the coordinate and minute
+    let bfs = [];
+    let time = 0;
+    let rows = grid.length;
+    let cols = grid[0].length;
+    
+    for (let i = 0; i < grid.length; i++) {
+        let row = grid[i];
+        for (let j = 0; j < row.length; j++) {
+            if (grid[i][j] === 2) {
+                bfs.push([[i, j], 0]);  // coords and minute
+            }
+        }
+    }
+    
+    while(bfs.length) {
+        let node = bfs.shift();
+        let coords = node[0];
+        let minute = node[1];
+        time = Math.max(time, minute);
+        // get the 4 directions
+        let above = [coords[0] - 1, coords[1]];
+        let left = [coords[0], coords[1] - 1];
+        let right = [coords[0], coords[1] + 1];
+        let below = [coords[0] + 1, coords[1]];
+        
+        [above, left, right, below].forEach(direction => {
+            if (grid[direction[0]] && 
+                grid[direction[0]][direction[1]] && 
+                grid[direction[0]][direction[1]] === 1) {
+                grid[direction[0]][direction[1]] = 2;
+                bfs.push([direction, minute + 1]);
+            }            
+        });
+        
+    }
+    for (let i = 0; i < grid.length; i++) {
+        let row = grid[i];
+        for (let j = 0; j < row.length; j++) {
+            if (grid[i][j] === 1) {
+                return -1;
+            }
+        }
+    }
+    return time;
+    // push all the rotten oranges in there
+    // iterate and mark the fresh oranges as rotten and push them 
+    // once stack is empty, end loop
+    // go through the array and check if there are any fresh oranges
+    
+};
+```
