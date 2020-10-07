@@ -26,6 +26,8 @@ rotate 4 steps to the right: 2->0->1->NULL
 - I messed up on zero rotations. When that happened, I still rotated the head element with the last element. Just do an early return.
 - I messed up on my rotation calculation. Once you have the number of rotations, you need to find the node to move the elements. 
 - So, it is actually length - rotations
+
+There is another solution! More details below!
 ```
 /**
  * Definition for singly-linked list.
@@ -86,3 +88,10 @@ rotations = 2
 length - rotations = 3
 */
 ```
+
+### Another Solution:
+- Have two pointers: slow and fast.
+- The fast pointer will iterate through the list k times. If it hits the end of the list, go back to head (this is in case k > length of list)
+- Then, once the fast and slow pointers are in position, move the slow and fast pointers until the fast pointer hits the end of the list
+- Finally, set the fast pointer's next to point to the head (to connect) then have slow pointer's next be the new head. 
+Set slow pointer's next to null and return new head.
