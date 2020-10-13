@@ -78,3 +78,109 @@ var sortList = function(head) {
     return null;
 };
 ```
+
+- The merge sort solution, which takes constant space
+```
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var sortList = function(head) {
+    if (!head || !head.next) {
+        return head;
+    }
+    let middleNode = findMiddleAndSetNull(head);
+    let left = sortList(head);
+    let right = sortList(middleNode);
+    return merge(left, right);
+};
+
+var merge = function(left, right) {
+    let leftPtr = left;
+    let rightPtr = right;
+    let newHead = null;
+    let current = null;
+    
+    while(leftPtr || rightPtr) {
+        if (!leftPtr) {
+            if (!current) {
+                current = rightPtr;
+                newHead = current;
+                rightPtr = rightPtr.next;
+                continue;
+            } else {
+                current.next = rightPtr;
+                current = current.next;
+                rightPtr = rightPtr.next;
+                continue;
+            }
+        }
+        if (!rightPtr) {
+            if (!current) {
+                current = leftPtr;
+                newHead = current;
+                leftPtr = leftPtr.next;
+                continue;
+            } else {
+                current.next = leftPtr;
+                current = current.next;
+                leftPtr = leftPtr.next;
+                continue;
+            }
+        }
+        
+        if (leftPtr.val < rightPtr.val) {
+            if (!current) {
+                current = leftPtr;
+                newHead = current;
+                leftPtr = leftPtr.next;
+                continue;
+            } else {
+                current.next = leftPtr;
+                current = current.next;
+                leftPtr = leftPtr.next;
+                continue;
+            }            
+        } else {
+            if (!current) {
+                current = rightPtr;
+                newHead = current;
+                rightPtr = rightPtr.next;
+                continue;
+            } else {
+                current.next = rightPtr;
+                current = current.next;
+                rightPtr = rightPtr.next;
+                continue;
+            }            
+        }
+    }
+    
+    return newHead;
+};
+
+var findMiddleAndSetNull = function(node) {
+    let prev = null;
+    let slow = node;
+    let fast = node;
+    
+    if (fast && fast.next) {
+        fast = fast.next.next;
+        prev = slow;
+        slow = slow.next;
+    }
+    
+    if (prev) {
+        prev.next = null;    
+    }
+    
+    return slow;
+}
+```
