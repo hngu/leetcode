@@ -79,7 +79,7 @@ var sortList = function(head) {
 };
 ```
 
-- The merge sort solution, which takes constant space
+- The merge sort solution, which takes O(log n) space because of the recursive call stack
 ```
 /**
  * Definition for singly-linked list.
