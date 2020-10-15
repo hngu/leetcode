@@ -58,3 +58,36 @@ var rotate = function(nums, k) {
     }
 };
 ```
+
+Here is the in-place, constant space rotation:
+```
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function(nums, k) {
+    // first, get the real rotations by doing k % nums.length, 
+    // then reverse nums
+    // then write a helper function to switch elements between start and end
+    // use helper function to switch [0...k] [k + 1, ...n]
+    
+    let rotations = k % nums.length;
+    const reverse = (arr, start, end) => {
+        while (start < end) {
+            let temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start += 1;
+            end -= 1;
+        }
+        
+        return arr;
+    }
+    
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, rotations - 1);
+    reverse(nums, rotations, nums.length - 1);
+    return nums;
+};
+```
