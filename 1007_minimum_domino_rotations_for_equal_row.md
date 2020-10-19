@@ -42,6 +42,7 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 - If it shows up less often in A, then it is the number of times the number is in A. If it shows up less often in B, then it is the number of times
 the number is in B.
 - GOTCHA: if the number is in A and B, then don't count it. There are no rotations for that number.
+- There is another, easier way below this solution.
 ```
 /**
  * @param {number[]} A
@@ -94,5 +95,48 @@ var minDominoRotations = function(A, B) {
     
     nums = nums.map(num => Math.min(map[num].aCount, map[num].bCount));
     return Math.min(...nums);
+};
+```
+- Another solution: in order to have rotations, the first domino's tile numbers must match any of the rest of dominos.
+- So, take the first domino, and test how many swaps are necessary for both tiles.
+- The code below shows the algorithm:
+```
+/**
+ * @param {number[]} A
+ * @param {number[]} B
+ * @return {number}
+ */
+var minDominoRotations = function(A, B) {
+    const minSwaps = (A, B, num) => {
+        let total = 0;
+        let aCount = 0;
+        let bCount = 0;
+        
+        for (let i = 0; i < A.length; i++) {
+            let a = A[i];
+            let b = B[i];
+            if (a !== num && b !== num) {
+                continue;
+            }
+            total += 1;
+            if (a === num) {
+                aCount += 1;
+            }
+            if (b === num) {
+                bCount += 1;
+            }
+        }
+        if (total !== A.length) {
+            return -1;
+        }
+        return Math.min(total - aCount, total - bCount);
+    };
+    
+    let minSwapA = minSwaps(A, B, A[0]);
+    let minSwapB = minSwaps(A, B, B[0]);
+    if (minSwapA === -1 && minSwapB === -1) {
+        return -1;
+    }
+    return Math.min(...[minSwapA, minSwapB].filter(num => num !== -1));
 };
 ```
