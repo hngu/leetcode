@@ -7,6 +7,7 @@ The minimum depth is the number of nodes along the shortest path from the root n
 Note: A leaf is a node with no children.
 
 **Example 1:**
+```
     3
   9   20
     15   7
