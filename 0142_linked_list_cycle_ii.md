@@ -40,6 +40,7 @@ pos is -1 or a valid index in the linked-list.
 ```
 
 ### Solution:
+- The solution I went with a O(n^2) time, and O(n) space solution. There is a O(n) time, O(1) space solution below mine.
 
 ```
 # Definition for singly-linked list.
@@ -75,4 +76,42 @@ class Solution:
         
         return None
         
+```
+
+### Best solution:
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        slowPtr = head
+        fastPtr = head
+        
+        while fastPtr and fastPtr.next:
+            fastPtr = fastPtr.next.next
+            slowPtr = slowPtr.next
+            
+            if slowPtr == fastPtr:
+                break
+        
+        if fastPtr is None or fastPtr.next is None:
+            return None
+        
+        # reset the slow pointer to the head
+        # since we detected a cycle, we should
+        # be able to find the origin of the cycle
+        # by moving slow and fast pointers one by one
+        # and seeing where they meet
+        slowPtr = head
+        while slowPtr != fastPtr:
+            slowPtr = slowPtr.next
+            fastPtr = fastPtr.next
+        
+        return slowPtr
+            
+       
 ```
