@@ -11,6 +11,7 @@ Follow up:
 Can you solve it using O(1) (i.e. constant) memory?
 
 **Example 1:**
+```
 3 -> 2 -> 0 -> -4
 
 Input: head = [3,2,0,-4], pos = 1
