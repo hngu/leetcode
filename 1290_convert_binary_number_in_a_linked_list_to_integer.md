@@ -43,6 +43,8 @@ Each node's value is either 0 or 1.
 ```
 
 ### Solution:
+- There is a better solution below this one!
+
 ```
 # Definition for singly-linked list.
 # class ListNode:
@@ -68,4 +70,29 @@ class Solution:
             sum += (2 ** index) * num
         
         return sum
+```
+
+### Best Solution:
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def getDecimalValue(self, head: ListNode) -> int:
+        """
+            Shift left with multiply 2
+            Then add num
+            Repeat
+        """
+        total = 0
+        ptr = head
+    
+        while ptr:
+            total *= 2
+            total += ptr.val
+            ptr = ptr.next
+            
+        return total
 ```
