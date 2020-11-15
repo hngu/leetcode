@@ -30,6 +30,8 @@ All Node.val are unique.
 ```
 
 ### Solution:
+- There is an optimization: you do not need to search in a subtree if that subtree has values less than low or greather than high.
+- I did not code that optimization but should be easy to add.
 ```
 # Definition for a binary tree node.
 # class TreeNode:
