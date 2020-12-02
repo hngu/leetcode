@@ -62,3 +62,48 @@ class Solution:
 # param_1 = obj.getRandom()
 ```
 
+**Reservoir Sampling**
+- Take the first k elements from unknown stream of (unknown size, n)
+- iterate through k to the end of the stream (n - 1) inclusive, we call this index
+- get a random number between 0 and index
+- if the random number is less than k, we replace output[randomIndex] = stream[index]
+- return output
+- for this problem, k is 1. 
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+
+    def __init__(self, head: ListNode):
+        """
+        @param head The linked list's head.
+        Note that the head is guaranteed to be not null, so it contains at least one node.
+        """
+        self.head = head
+        
+
+    def getRandom(self) -> int:
+        """
+        Returns a random node's value.
+        """
+        output = self.head
+        ptr = self.head
+        count = 1
+        
+        while ptr:
+            if random.random() < 1 / count:
+                output = ptr
+            count += 1
+            ptr = ptr.next
+        
+        return output.val    
+        
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(head)
+# param_1 = obj.getRandom()
+```
