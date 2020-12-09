@@ -49,6 +49,7 @@ Could you implement next() and hasNext() to run in average O(1) time and use O(h
 ```
 
 ### Solution:
+- My initial solution is straightforward. There is a better solution below that uses controlled recurison to solve this.
 ```
 # Definition for a binary tree node.
 # class TreeNode:
@@ -74,6 +75,55 @@ class BSTIterator:
 
     def hasNext(self) -> bool:
         return len(self.inorder) > 0
+        
+
+
+# Your BSTIterator object will be instantiated and called as such:
+# obj = BSTIterator(root)
+# param_1 = obj.next()
+# param_2 = obj.hasNext()
+```
+
+### Better solution:
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class BSTIterator:
+    """
+        The idea: to control inorder recursion, instead of relying on the system stack
+        you create your own stack and push elements there.
+        Here - we will start from the root and push all the left most nodes
+        when we initialize the tree. The last element of the stack should be
+        the smallest element in the tree.
+        When calling next() we pop off the element of the stack. There are two cases here:
+        - if the node has no right child, return the node value.
+        - call the helper function on the right subtree then return the node value.
+        Space complexity: O(h) space 
+        Time complexity: O(h) for next() and O(1) for hasNext()
+    """
+
+    def __init__(self, root: TreeNode):
+        self.stack = collections.deque()
+        self.__left_traverse(root)
+    
+    def __left_traverse(self, node):
+        while node:
+            self.stack.append(node)
+            node = node.left
+
+    def next(self) -> int:
+        node = self.stack.pop()
+        if node.right:
+            self.__left_traverse(node.right)
+        return node.val
+            
+
+    def hasNext(self) -> bool:
+        return len(self.stack) > 0
         
 
 
