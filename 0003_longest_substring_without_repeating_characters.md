@@ -94,4 +94,4 @@ class Solution:
 ```
 
 ### Better Solution:
-- Use a sliding window approach. Have pointers, i, j and slide j. If j is not unique, then move i.
+- Use a sliding window approach. Have pointers, i, j and slide j. If j is not unique, then move i. Max would be max(max, j - i).
