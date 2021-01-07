@@ -92,3 +92,6 @@ class Solution:
         return longest
         
 ```
+
+### Better Solution:
+- Use a sliding window approach. Have pointers, i, j and slide j. If j is not unique, then move i.
