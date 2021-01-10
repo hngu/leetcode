@@ -10,3 +10,7 @@ Data Structures:
 - Heap
 - Binary Index Tree (Fenwick Tree)
 - Segment Tree
+
+Python:
+- use deque for lists: they have better performance
+- SortedList: let's you find elements strictly greater than / less than x in O(log n) time using bisect_left or bisect_right.
