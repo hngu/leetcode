@@ -42,3 +42,54 @@ Best solution:
 - First, go through each list and count their lengths
 - Once you are done, check the last element of each list. If they are different, return null since there is no intersection
 - Then, to account for differing list sizes, have the longer list start abs(len(A) - len(B)) nodes ahead. Then move each ptr one node at a time checking if they are on the same node.
+
+### Code
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        """
+            Get the length of the first linked list
+            Get the length of the second linked list
+            Get the absolute difference
+            Find the longest linked list and move a pointer up
+            to the absolute difference
+            Move them one by one and check if they are the same
+            If they are, return that node
+            Return null
+        """
+        def getLength(node):
+            count = 0
+            while node:
+                count += 1
+                node = node.next
+            return count
+        
+        aLength = getLength(headA)
+        bLength = getLength(headB)
+        
+        if not aLength or not bLength:
+            return None
+
+        longNode = headA if aLength > bLength else headB
+        shortNode = headA if longNode == headB else headB
+        diff = abs(aLength - bLength)
+        
+        while diff > 0 and longNode:
+            diff -= 1
+            longNode = longNode.next
+        
+        while longNode and shortNode:
+            if longNode == shortNode:
+                return longNode
+            longNode = longNode.next
+            shortNode = shortNode.next
+        
+        return None
+        
+```
