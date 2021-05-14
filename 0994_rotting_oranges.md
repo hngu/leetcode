@@ -106,3 +106,70 @@ var orangesRotting = function(grid) {
     
 };
 ```
+
+Here is the Java Solution:
+```
+class Solution {
+    public int orangesRotting(int[][] grid) {
+        /**
+            - Have a bfs array
+            - Have a max minute count
+            - Go through all grid and push all rotten oranges
+            - While there is a bfs array length:
+                - take the next rotten orange
+                - get the four directional oranges and rot them and push to bfs array
+            - Go through the grid again to see if there are any fresh oranges
+            - If there are, return -1, else return max minute count
+         */
+        ArrayList <int[]> bfs = new ArrayList<>();
+        int rows = grid.length;
+        int cols = grid[0].length;
+        int minutes = 0;
+        int[][] directions = {
+            {-1, 0},
+            {1, 0},
+            {0, -1},
+            {0, 1}
+        };
+        
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == 2) {
+                    int[] tuple = {i, j, 0};
+                    bfs.add(tuple);
+                }
+            }
+        }
+        
+        while(bfs.size() > 0) {
+            int[] tuple = bfs.remove(0);
+            int[] coords = {tuple[0], tuple[1]};
+            minutes = Math.max(tuple[2], minutes);
+            
+            for (int i = 0; i < directions.length; i++) {
+                int[] direction = directions[i];
+                int[] newDirection = {coords[0] + direction[0], coords[1] + direction[1]};
+                if (newDirection[0] >= 0 && 
+                    newDirection[0] < rows && 
+                    newDirection[1] >= 0 && 
+                    newDirection[1] < cols && 
+                    grid[newDirection[0]][newDirection[1]] == 1) {
+                    grid[newDirection[0]][newDirection[1]] = 2;
+                    int[] newTuple = {newDirection[0], newDirection[1], tuple[2] + 1};
+                    bfs.add(newTuple);
+                }
+            }
+        }
+        
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == 1) {
+                    return -1;
+                }
+            }
+        }
+        
+        return minutes;
+    }
+}
+```
