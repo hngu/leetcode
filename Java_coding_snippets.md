@@ -14,3 +14,9 @@ boolean[][] visited = new boolean[rows][cols];
     {0, -1}
   };
 ```
+
+## Initialize array of fixed length
+```
+int x = 20;
+int[] dp = new int[20]; // 20 elements
+```
