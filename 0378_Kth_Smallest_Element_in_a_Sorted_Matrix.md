@@ -28,6 +28,12 @@ All the rows and columns of matrix are guaranteed to be sorted in non-decreasing
 1 <= k <= n2
 ```
 
+**Tags**
+- heap
+- minheap
+- maxheap
+- binary search
+
 ### Solution
 ```
 class Solution:
@@ -48,3 +54,21 @@ class Solution:
         
         return elements[-1]
 ```
+
+Here is one that uses max heap:
+```
+class Solution:
+    def kthSmallest(self, matrix, k):
+        m, n = len(matrix), len(matrix[0])  # For general, matrix doesn't need to be a square
+        maxHeap = []
+        for r in range(m):
+            for c in range(n):
+                heappush(maxHeap, -matrix[r][c])
+                if len(maxHeap) > k:
+                    heappop(maxHeap)
+        return -heappop(maxHeap)
+```
+
+Binary search:
+- The idea is to use binary search to count number of elements less than or equal to mid. Then checking if that count is <= k. 
+- This sounds crazy so gonna not implement it.
