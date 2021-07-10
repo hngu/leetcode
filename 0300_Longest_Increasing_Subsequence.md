@@ -40,9 +40,9 @@ Follow up: Can you come up with an algorithm that runs in O(n log(n)) time compl
 - But that is wrong because it will fail for [0,1,0,3,2,3]
 - The idea is to assume that you have a lookup table that will tell you what is the Longest increasing subsequence ending at nums[i]
 - Now let's say we add a new number at the end of nums, called j
-- We compute the LIS ending at nums[j] checking all of nums[0...i] and see if it is less than nums[j]
-- If it is, compute the subsequence
-- Compute the longest over nums[i..j]
+- Then for each nums[0...i] check if you can form an increasing subsequence with nums[j]
+- If you can, then compute the Longest increasing subsequence ending at nums[j]
+- The max of this lookup table will be the longest increasing subseqence
 
 ```
 class Solution:
