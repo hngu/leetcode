@@ -19,3 +19,4 @@ Python:
 Tips:
 - How to check if a number is a decimal? Do n % 1 == 0. That will tell you if it divides evenly by 1 without any remainders.
 - With character mappings you need a `s -> t` char mapping AND a `t -> s` char mapping to ensure they map uniquely.
+- Refresh your memory how to do binary search
