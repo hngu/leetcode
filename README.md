@@ -20,3 +20,5 @@ Tips:
 - How to check if a number is a decimal? Do n % 1 == 0. That will tell you if it divides evenly by 1 without any remainders.
 - With character mappings you need a `s -> t` char mapping AND a `t -> s` char mapping to ensure they map uniquely.
 - Refresh your memory how to do binary search
+- When dealing with an array of sorted numbers, think about binary search or pointer solutions. Ex: Valid Triangle
+- Sum problems: Usually a lookup map of the difference
