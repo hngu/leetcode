@@ -21,3 +21,10 @@ You can use depth first search to find all the connected components in a undirec
 NOTES:
 - DFS should stop running when it has no more nodes to reach or if the node is already visited.
 - We need to keep track of what nodes were visited. We can use a visited array to achieve this.
+
+### Shortest Path from node A -> node E
+The easiest way to solve this is to use Breadth First Search on node A, tracking the path in an array. If node E exists in that path, then return that path.
+Using BFS is better than DFS because it will find the shortest path whereas DFS might return a path, but not necessarily the shortest.
+
+**The Algorithm**
+
