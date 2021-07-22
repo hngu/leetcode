@@ -2,7 +2,7 @@
 
 Strategies:
 - Sliding Window
-- Prefix Sum/Suffix Sum
+- Prefix Sum/Suffix Sum, Prefix Min/Max, Suffix Min/Max
 - Interval Problems: use a stack and modify the last stack if overlap, otherwise add it stack.
 - Linked List: using a sentinel node.
 
