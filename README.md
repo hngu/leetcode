@@ -22,3 +22,4 @@ Tips:
 - Refresh your memory how to do binary search
 - When dealing with an array of sorted numbers, think about binary search or pointer solutions. Ex: Valid Triangle
 - Sum problems: Usually a lookup map of the difference
+- Always consider the invariants of your algorithm
