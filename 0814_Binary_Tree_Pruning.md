@@ -57,6 +57,9 @@ Input: root = [1,1,0,1,1,0,1,0]
 Output: [1,1,0,1,1,null,1]
 ``` 
 
+**Tags**
+- Binary Tree
+
 **Constraints:**
 ```
 The number of nodes in the tree is in the range [1, 200].
