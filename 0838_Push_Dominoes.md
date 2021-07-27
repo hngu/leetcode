@@ -36,6 +36,10 @@ n == dominoes.length
 dominoes[i] is either 'L', 'R', or '.'.
 ```
 
+**Tags**
+- Array
+- String
+
 ### Solution
 ```
 class Solution:
