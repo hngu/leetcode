@@ -26,3 +26,14 @@ Tips:
 - Sum problems: Usually a lookup map of the difference
 - Always consider the invariants of your algorithm: what will hold true for your algorithm?
 - When facing a problem relating to dependencies or relationships, think about graphs or trees
+- When you are really stuck, think about the "reverse" of the problem. For example, if a problem is: "Find add odd numbers", the reverse would be to find even numbers first and anything that is non-even would be the answer!
+- When stuck, work backwards from a solution. Assuming you had the solution - how would you move backwards to get to the original problem?
+
+Questions:
+- What data type will the input be? Will it always be the same data type?
+- Is it possible to get an empty input?
+- What is the maximum size of the input?
+- If the input is invalid, should the function return 0 or False?
+- What data type should the output be?
+- Will the input all be in the same case?
+- Does punctuation need to be considered?
