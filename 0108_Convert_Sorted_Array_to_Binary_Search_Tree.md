@@ -30,6 +30,9 @@ OR:
 Explanation: [1,3] and [3,1] are both a height-balanced BSTs.
 ``` 
 
+**Tags**
+- Binary Tree
+
 **Constraints:**
 ```
 1 <= nums.length <= 104
