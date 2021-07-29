@@ -17,6 +17,7 @@ Python:
 - SortedList: let's you find elements strictly greater than / less than x in O(log n) time using bisect_left or bisect_right.
 - Copy list: `nums[:]`
 - list slicing: ok if out of bounds `nums[0:11111]` or `nums[111111:]` they both return empty lists
+- this will initialize a matrix: `res = [ [ 0 for i in range(M) ] for j in range(N) ]`
 
 Tips:
 - How to check if a number is a decimal? Do n % 1 == 0. That will tell you if it divides evenly by 1 without any remainders.
