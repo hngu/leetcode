@@ -28,3 +28,7 @@ Using BFS is better than DFS because it will find the shortest path whereas DFS 
 
 **The Algorithm**
 
+### Topological Sort
+- Top Sort is representing a graph where the order of the nodes or events matter
+- Examples include class prerequisties, program dependencies etc
+
