@@ -29,6 +29,8 @@ Tips:
 - When facing a problem relating to dependencies or relationships, think about graphs or trees
 - When you are really stuck, think about the "reverse" of the problem. For example, if a problem is: "Find add odd numbers", the reverse would be to find even numbers first and anything that is non-even would be the answer!
 - When stuck, work backwards from a solution. Assuming you had the solution - how would you move backwards to get to the original problem?
+- Power set: for each number, get the subset of the rest of the numbers with and without that number. Think bit flipping.
+- Permuations: ordering of elements. Order is important. To generate permutations, for each number pick it then permute the rest of the numbers
 
 Questions:
 - What data type will the input be? Will it always be the same data type?
