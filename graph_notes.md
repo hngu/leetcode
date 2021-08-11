@@ -29,6 +29,14 @@ Using BFS is better than DFS because it will find the shortest path whereas DFS 
 **The Algorithm**
 
 ### Topological Sort
-- Top Sort is representing a graph where the order of the nodes or events matter
+- Top Sort is used to find the topological ordering of a graph where the order of the nodes or events matter
 - Examples include class prerequisties, program dependencies etc
+- topological ordering: ordering of nodes of a directed, acyclic graph where for nodes A with edges pointing to node B, node A appears before node B in the ordering.
+- Toplogical orderings are not unique (ex: multiple valid ways to fulfill program dependencies)
+- To detect a cycle, use Tarjan's Strongly connnected components algorithm
+
+**The Algorithm**
+- pick an unvisited node
+- start at that node and do a DFS for all child nodes
+- on the recursive callback, add the current node to the topological ordering
 
