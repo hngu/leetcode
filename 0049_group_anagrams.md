@@ -1,4 +1,5 @@
 ### 49. Group Anagrams
+Medium
 
 Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
@@ -80,4 +81,26 @@ var groupAnagrams = function(strs) {
 //     // O(n) iteration
 //     return Object.values(newMap);
 };
+```
+Python version
+```
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        """
+            Need a map of ordered chars -> anagrams
+            
+            Then for each str in strs:
+            - create a ordered version of str
+            - add into the map
+            
+            Return map.values()
+        """
+        lookup = collections.defaultdict(list)
+        
+        for word in strs:
+            ordered = "".join(sorted(list(word)))
+            lookup[ordered].append(word)
+        
+        return lookup.values()
+        
 ```
