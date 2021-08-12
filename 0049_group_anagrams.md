@@ -36,6 +36,10 @@ strs[i] consists of lower-case English letters.
 - create a key from the word with the letters sorted
 - put it in the map with wordSortedByLetters => [word...]
 
+Another way to solve it:
+- Create a char count for each word. You can represent it as a tuple in python (1,2,3,..0)
+- Then compare each char count to each other
+- This is slightly faster than the sorting one above
 ```
 /**
  * @param {string[]} strs
