@@ -77,6 +77,13 @@ class Solution:
             Then iterate through the matrix again
             - if that row is a zero in the row map, set it to zero
             - if that col is a zero in the column map set it to zero
+            
+            Best answer:
+            Iterate through the matrix
+            If the cell contains a zero, mark the row's first cell as zero
+            and the column's first cell as zero
+            Then iterate through each row's first cell and if it is a zero, mark the entire row as zero.
+            Do the same with column's first cell
         """
         row_map = {}
         col_map = {}
