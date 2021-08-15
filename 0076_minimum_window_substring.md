@@ -1,12 +1,47 @@
 ### 76. Minimum Window Substring
+Hard
 
-Given a string `S` and a string `T`, find the minimum window in `S` which will contain all the characters in `T` in complexity `O(n)`.
+Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
 
-**Example:**
+The testcases will be generated such that the answer is unique.
+
+A substring is a contiguous sequence of characters within the string.
+ 
+**Example 1:**
 ```
-Input: S = "ADOBECODEBANC", T = "ABC"
+Input: s = "ADOBECODEBANC", t = "ABC"
 Output: "BANC"
+Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
 ```
+
+**Example 2:**
+```
+Input: s = "a", t = "a"
+Output: "a"
+Explanation: The entire string s is the minimum window.
+```
+
+**Example 3:**
+```
+Input: s = "a", t = "aa"
+Output: ""
+Explanation: Both 'a's from t must be included in the window.
+Since the largest window of s only has one 'a', return empty string.
+``` 
+
+**Constraints:**
+```
+m == s.length
+n == t.length
+1 <= m, n <= 105
+s and t consist of uppercase and lowercase English letters.
+``` 
+
+**Follow up: Could you find an algorithm that runs in O(m + n) time?**
+
+**Tags**
+- sliding window
+
 **Note:**
 - If there is no such window in `S` that covers all characters in `T`, return the empty string `""`.
 - If there is such window, you are guaranteed that there will always be only one unique minimum window in `S`.
@@ -99,4 +134,65 @@ var minWindow = function(s, t) {
     
     return s.substring(result[0], result[1] + 1);
 };
+```
+
+### Python Solution
+- Very hard problem, but rewarding
+- It was hard because there are cases where s = "a" and t = "aa" have to be checked for duplicates
+- Also hard to keep track of the pointers and the character counts as you slide and contract. DO NOT DOUBLE COUNT CHARACTERS.
+- Good practice with sliding window
+```
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        """
+            Have a sliding window with a = 0, b = 0
+            Get a char lookup for sliding window
+            Get current char in b and add to char lookup
+            Then check if char lookup has all chars in t
+            If it does, then get the min window size
+            
+            Then move a down and subtract the char a previously
+            was in char lookup
+            If char lookup still has all chars in t, get min window size
+            Else move b
+            
+            Return min window size
+        """
+        window = float('inf')
+        result = ""
+        lookup = {}
+        a = 0
+        b = 0
+        size = len(s)
+        t_lookup = collections.Counter(t)
+        
+        def hasAllChars():
+            for char in t_lookup:
+                if lookup.get(char, 0) < t_lookup[char]:
+                    return False
+            return True
+        
+        while b < size:
+            bChar = s[b]
+            lookup[bChar] = lookup.get(bChar, 0) + 1
+            if hasAllChars():
+                if window > (b - a + 1):
+                    window = b - a + 1
+                    result = s[a:b+1]                
+                while a <= b:
+                    aChar = s[a]
+                    a += 1
+                    lookup[aChar] -= 1
+                    if hasAllChars():
+                        if window > (b - a + 1):
+                            window = b - a + 1
+                            result = s[a:b+1]                        
+                        continue
+                    else:
+                        break
+            b += 1
+        
+        
+        return result
+        
 ```
