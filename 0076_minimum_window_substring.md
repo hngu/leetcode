@@ -196,3 +196,67 @@ class Solution:
         return result
         
 ```
+Version 3:
+```
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        """
+            Have a sliding window with a = 0, b = 0
+            Get a char lookup for sliding window
+            Get current char in b and add to char lookup
+            Then check if char lookup has all chars in t
+            If it does, then get the min window size
+            
+            Then move a down and subtract the char a previously
+            was in char lookup
+            If char lookup still has all chars in t, get min window size
+            Else move b
+            
+            Return min window size
+            
+            TRICK: to check if the window has all chars in t:
+            - Have a required variable which equals to the number of unique chars in t
+            - Have a formed variable which equals to current number of unique chars
+            you have founded in t so far
+            - When formed == required, then you have all the chars in t
+            - When you contract the window, always check if lookup[leftChar] < t_lookup[leftChar]
+            and if so, then decrement formed.
+        """
+        window = float('inf')
+        result = ""
+        lookup = {}
+        a = 0
+        b = 0
+        size = len(s)
+        t_lookup = collections.Counter(t)
+        required = len(t_lookup)
+        formed = 0
+        
+        while b < size:
+            bChar = s[b]
+            lookup[bChar] = lookup.get(bChar, 0) + 1
+            if bChar in t_lookup and lookup[bChar] == t_lookup[bChar]:
+                formed += 1
+            if formed == required:
+                if window > (b - a + 1):
+                    window = b - a + 1
+                    result = s[a:b+1]                
+                while a <= b:
+                    aChar = s[a]
+                    a += 1
+                    lookup[aChar] -= 1
+                    if aChar in t_lookup and lookup[aChar] < t_lookup[aChar]:
+                        formed -= 1                    
+                    if formed == required:
+                        if window > (b - a + 1):
+                            window = b - a + 1
+                            result = s[a:b+1]                        
+                        continue
+                    else:
+                        break
+            b += 1
+        
+        
+        return result
+        
+```
