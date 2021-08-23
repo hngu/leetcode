@@ -41,6 +41,7 @@ root is guaranteed to be a valid binary search tree.
 -105 <= k <= 105
 
 ### Solution
+- You can do it in one pass! I did this in 3 passes.
 - When I ran with test case [2,2,2] it wasn't a valid input meaning the nodes are definitely unique!
 ```
 # Definition for a binary tree node.
