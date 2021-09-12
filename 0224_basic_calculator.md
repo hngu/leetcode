@@ -76,3 +76,68 @@ var calculate = function(s) {
     return compute(stack);
 };
 ```
+
+The Python version
+```
+class Solution:
+    def calculate(self, s: str) -> int:
+        """
+            remove the blanks
+            first compute the parentheses
+            then compute the rest of the expression
+            Need to account for multi-digit numbers and negative numbers
+        """
+        s = s.replace(" ", "")
+        expression = collections.deque(list(s))
+
+        
+        def compute(first, operand, second):
+            num1 = int("".join(first))
+            num2 = int("".join(second))
+            if operand == "+":
+                return num1 + num2
+            else:
+                return num1 - num2
+        
+        def helper():
+            first = []
+            operand = None
+            second = []            
+            # get the first operand
+            while expression:
+                char = expression.popleft()
+                if char.isdigit():
+                    first.append(char)
+                elif char == "(":
+                    first.append(str(helper()))
+                elif char == ")":
+                    return "".join(first)
+                elif not first:
+                    first.append(char)
+                else:
+                    operand = char
+                    break
+
+            while expression:
+                char = expression.popleft()
+                if char.isdigit():
+                    second.append(char)
+                elif char == "(":
+                    second = [str(helper())]
+                elif char == ")":
+                    break    
+                else:
+                    result = compute(first, operand, second)
+                    first = [str(result)]
+                    second = []
+                    operand = char
+
+            if not second:
+                return int("".join(first))
+
+            return compute(first, operand, second)
+        
+        return helper()
+        
+        
+```
