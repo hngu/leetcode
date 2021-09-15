@@ -107,3 +107,12 @@ class Solution:
         
         return max(global_max, local_max)
 ```
+
+### Leetcode Solution
+```
+For example, take an array like A = [9,4,2,10,7,8,8,1,9]. The comparisons are [1,1,-1,1,-1,0,-1,1]. The blocks are [1], [1,-1,1,-1], [0], [-1,1].
+
+Algorithm
+
+Scan the array from left to right. If we are at the end of a block (last elements OR it stopped alternating), then we should record the length of that block as our candidate answer, and set the start of the new block as the next element.
+```
