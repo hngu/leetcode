@@ -8,7 +8,7 @@ Strategies:
 - Linked List: using a sentinel node.
 - Backtracking
 - Kadane's Algorithm
-- Subsequences
+- Subsequences (Use DP with 2D matrix)
 - 2Sum, 3Sum, 4Sum...
 - Binary Search
 - Subset Generation
