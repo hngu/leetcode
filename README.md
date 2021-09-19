@@ -3,7 +3,7 @@
 Strategies:
 - Go with the naive algorithm first! Then think about optimizations.
 - Sliding Window
-- Prefix Sum/Suffix Sum, Prefix Min/Max, Suffix Min/Max
+- Prefix/Suffix Sum, Prefix/Suffic Min or Max
 - Interval Problems: use a stack and modify the last stack if overlap, otherwise add it stack.
 - Linked List: using a sentinel node.
 - Backtracking
