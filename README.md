@@ -9,7 +9,7 @@ Strategies:
 - Backtracking
 - Kadane's Algorithm
 - Subsequences (Use DP with 2D matrix. Draw the 2D matrix to gain some intuition)
-- 2Sum, 3Sum, 4Sum...
+- 2Sum, 3Sum, 4Sum...if looking for indexes, you cannot sort. Otherwise, try sorting if it helps.
 - Binary Search
 - Subset Generation
 - Permutation Generation
