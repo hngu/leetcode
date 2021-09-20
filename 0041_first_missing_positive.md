@@ -1,5 +1,7 @@
 ### 41. First Missing Positive
 
+Hard
+
 Given an unsorted integer array, find the smallest missing positive integer.
 
 **Example 1:**
@@ -22,6 +24,12 @@ Output: 1
 
 Follow up:
 Your algorithm should run in O(n) time and uses constant extra space.
+
+**Constraints:**
+``
+1 <= nums.length <= 5 * 10^5
+-2^31 <= nums[i] <= 2^31 - 1
+```
 
 ### Solution:
 This was hard. My solution did not work for [-999, -998, 1]. I also did not use constant extra space.
