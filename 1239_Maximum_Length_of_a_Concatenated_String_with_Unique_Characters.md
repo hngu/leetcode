@@ -39,30 +39,37 @@ class Solution:
     def maxLength(self, arr: List[str]) -> int:
         """
             Let's first generate the combinations naively
-            Then get the max of the unique characters
+            
+            STOLEN IDEA: as you are generating the subsequences, have a set of unique
+            chars. If as you add new words it is no longer unique, then return early
+            to prune tree branches that are not viable.
         """
         max_length = 0
         
-        def helper(arr, result):
+        def helper(arr, result, unique):
             nonlocal max_length
+            
+            if result:
+                if len(result) != len(unique):
+                    return
+
             if not arr:
                 if result:
-                    result = "".join(result)
-                    if len(result) == len(set(list(result))):
-                        max_length = max(max_length, len(result)) 
+                    if len(result) == len(unique):
+                        max_length = max(max_length, len(result))                
                 return
             
             # get words without the first word
-            helper(arr[1:], result)
+            helper(arr[1:], result, unique)
             
             # get words with the first word
-            helper(arr[1:], result + [arr[0]])
+            helper(arr[1:], result + arr[0], unique | set(list(arr[0])))
     
     
-        helper(arr, [])
+        helper(arr, "", set())
         
         return max_length
 
         
-        
+             
 ```
