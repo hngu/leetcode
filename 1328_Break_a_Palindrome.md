@@ -45,6 +45,8 @@ palindrome consists of only lowercase English letters.
 class Solution:
     def breakPalindrome(self, palindrome: str) -> str:
         """
+            NOTE: THERE IS A LINEAR TIME SOLUTION THAT IS VERY CLEVER. THE HIGH LEVEL IS BELOW THIS CODE!!!
+            
             If it is a single char, return ""
             
             For even length strings, we can safely change any one char
@@ -89,3 +91,9 @@ class Solution:
         return min_result
         
 ```
+
+### Linear Solution Algorithm
+1. If the length of the string is 11, return an empty string since we cannot create a non-palindromic string in this case.
+1. Iterate over the string from left to the middle of the string: if the character is not aa, change it to aa and return the string.
+1. If we traversed over the whole left part of the string and still haven't got a non-palindromic string, it means the string has only aa's. Hence, change the last character to bb and return the obtained string.
+
