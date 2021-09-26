@@ -4,8 +4,9 @@ Strategies:
 - Go with the naive algorithm first! Then think about optimizations.
 - Sliding Window
 - Prefix/Suffix Sum, Prefix/Suffic Min or Max
-- Interval Problems: use a stack and modify the last stack if overlap, otherwise add it stack.
+- Interval Problems: use a stack and modify the last stack item if overlap, otherwise add it stack.
 - Linked List: using a sentinel node.
+- Linked List: slow and fast pointer. Have a fast pointer move by 2 while slow pointer goes by 1. OR if you want k difference, move fast pointer to k. Then move them both one by one.
 - Backtracking
 - Kadane's Algorithm
 - Subsequences (Use DP with 2D matrix. Draw the 2D matrix to gain some intuition)
