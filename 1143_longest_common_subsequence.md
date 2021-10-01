@@ -86,4 +86,33 @@ var longestCommonSubsequence = function(text1, text2) {
     return lcs(text1, text2, text1.length - 1, text2.length - 1, dp);
 };
 ```
+### Python version
+```
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        length1 = len(text1)
+        length2 = len(text2)
+        
+        dp = [[None for i in range(length2)] for j in range(length1)]
+        
+        
+        def lcs(text1, text2, pos1, pos2):
+            if pos1 == length1 or pos2 == length2:
+                return 0
+            
+            if dp[pos1][pos2] is not None:
+                return dp[pos1][pos2]
+            
+            if text1[pos1] == text2[pos2]:
+                dp[pos1][pos2] = 1 + lcs(text1, text2, pos1 + 1, pos2 + 1)
+            else:
+                first = lcs(text1, text2, pos1 + 1, pos2)
+                second = lcs(text1, text2, pos1, pos2 + 1)
+                dp[pos1][pos2] = max(first, second)
+        
+            return dp[pos1][pos2]
+        
+        return lcs(text1, text2, 0, 0)
+        
+```
 
