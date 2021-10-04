@@ -27,7 +27,7 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 
 **Tags**
 - Greedy
-- Retry
+- Revisit
 
 ### Solution
 ```
