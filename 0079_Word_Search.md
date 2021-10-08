@@ -61,6 +61,11 @@ a
 [["a", "a"]]
 aaa
 ```
+A neat optimization:
+- Have a global visited 2D matrix, all initially set to False
+- As you visit a cell in the recursive function, set that cell to True
+- At the end of the recursive function, before exiting, set visited to False
+- That way, you are not creating a new set of visited cells each time
 
 ```
 class Solution:
