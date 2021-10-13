@@ -23,6 +23,11 @@ Output: [8,5,10,1,7,null,12]
 The values of preorder are distinct.
 ```
 
+**Tags**
+- Trees
+- Revisit
+- Need to account for no split point!
+
 ### Solution:
 ```
 /**
