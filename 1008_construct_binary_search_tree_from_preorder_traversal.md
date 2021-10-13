@@ -29,6 +29,7 @@ The values of preorder are distinct.
 - Need to account for no split point!
 
 ### Solution:
+The python solution has linear run time. It uses the idea of a max value.
 ```
 /**
  * Definition for a binary tree node.
@@ -79,8 +80,7 @@ var bstFromPreorder = function(preorder) {
 };
 ```
 Python Solution
-```
-# Definition for a binary tree node.
+```# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
@@ -88,30 +88,29 @@ Python Solution
 #         self.right = right
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
-        if not preorder:
-            return None
-        
-        num = preorder.pop(0)
-        root = TreeNode(num)
-        
-        if not preorder:
+        def helper(preorder, max_num=None):
+            if not preorder:
+                return None
+            
+            num = preorder.pop(0)
+            root = TreeNode(num)
+            
+            if preorder and preorder[0] < num:
+                root.left = helper(preorder, num)
+            
+            if preorder:
+                if max_num is None:
+                    root.right = helper(preorder, max_num)
+                elif max_num > preorder[0]:
+                    root.right = helper(preorder, max_num)
+            
             return root
-
-        split = None
+                
         
-        for index, n in enumerate(preorder):
-            if n > num:
-                split = index
-                break
+        return helper(preorder)
         
-        if split is None:
-            root.left = self.bstFromPreorder(preorder)
-            return root
     
-        root.left = self.bstFromPreorder(preorder[:split])
-        root.right = self.bstFromPreorder(preorder[split:])
         
-        return root
         
     
         
