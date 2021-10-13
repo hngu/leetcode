@@ -73,3 +73,41 @@ var bstFromPreorder = function(preorder) {
     return root;
 };
 ```
+Python Solution
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        if not preorder:
+            return None
+        
+        num = preorder.pop(0)
+        root = TreeNode(num)
+        
+        if not preorder:
+            return root
+
+        split = None
+        
+        for index, n in enumerate(preorder):
+            if n > num:
+                split = index
+                break
+        
+        if split is None:
+            root.left = self.bstFromPreorder(preorder)
+            return root
+    
+        root.left = self.bstFromPreorder(preorder[:split])
+        root.right = self.bstFromPreorder(preorder[split:])
+        
+        return root
+        
+    
+        
+```
