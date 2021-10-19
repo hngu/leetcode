@@ -39,6 +39,9 @@ All the integers of nums1 also appear in nums2.
 
 Follow up: Could you find an O(nums1.length + nums2.length) solution?
 
+**Tags**
+- Revisit
+
 ### Solution
 I did the 0(n^2) solution. Below is the linear solution.
 
