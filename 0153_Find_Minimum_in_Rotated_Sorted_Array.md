@@ -32,6 +32,9 @@ Output: 11
 Explanation: The original array was [11,13,15,17] and it was rotated 4 times. 
 ``` 
 
+**Tags**
+- Revisit
+
 **Constraints:**
 ```
 n == nums.length
