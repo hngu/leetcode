@@ -51,6 +51,64 @@ There is exactly one starting cell and one ending cell.
 **Tags**
 - Revisit
 ### Solution:
+- Python version is the latest version
+- JS version is my original version
+```
+class Solution:
+    def uniquePathsIII(self, grid: List[List[int]]) -> int:
+        """
+            Go through the grid and:
+            - count empty spaces
+            - find the starting square
+            - find the ending square
+            
+            Then use recursion and DFS to find all paths that gets to the
+            exit square. You have to brute force this. This will be exponential.
+            
+            HINT: hamiltonian path
+        """
+        empty_spaces = 0
+        start_square = None
+        end_square = None
+        rows = len(grid)
+        cols = len(grid[0])
+        total = 0
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1:
+                    start_square = (i, j)
+                elif grid[i][j] == 2:
+                    end_square = (i, j)
+                elif grid[i][j] == 0:
+                    empty_spaces += 1
+        
+        def helper(x, y, current_path):
+            nonlocal total
+            if (x, y) == end_square and len(current_path) - 2 == empty_spaces:
+                total += 1
+                return
+            
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
+                if (0 <= nx < rows and
+                   0 <= ny < cols and
+                   grid[nx][ny] != -1 and
+                   (nx, ny) not in current_path):
+                    new_path = current_path.copy()
+                    new_path.append((nx, ny))
+                    helper(nx, ny, new_path)
+        
+        helper(start_square[0], start_square[1], [start_square])
+        
+        return total
+                 
+            
+            
+        
+```
+
 - Whenever we see the context of grid traversal, the technique of backtracking or DFS (Depth-First Search) should ring a bell. Maybe DP as well.
 - Use backtracking!
 - I messed up on kicking off the helper, miscounting the number of zeroes, passing `coord[i], coord[j]` into the helper function inside nextPaths forEach
