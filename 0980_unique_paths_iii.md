@@ -1,4 +1,5 @@
 ### 980. Unique Paths III
+Hard
 
 On a 2-dimensional grid, there are 4 types of squares:
 
@@ -37,11 +38,18 @@ There is no path that walks over every empty square exactly once.
 Note that the starting and ending square can be anywhere in the grid.
 ``` 
 
-**Note:**
+**Constraints**
 ```
-1 <= grid.length * grid[0].length <= 20
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 20
+1 <= m * n <= 20
+-1 <= grid[i][j] <= 2
+There is exactly one starting cell and one ending cell.
 ```
 
+**Tags**
+- Revisit
 ### Solution:
 - Whenever we see the context of grid traversal, the technique of backtracking or DFS (Depth-First Search) should ring a bell. Maybe DP as well.
 - Use backtracking!
