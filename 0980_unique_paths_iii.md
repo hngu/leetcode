@@ -53,6 +53,7 @@ There is exactly one starting cell and one ending cell.
 ### Solution:
 - Python version is the latest version
 - JS version is my original version
+- For both versions, an optimization you can make is use a seen matrix and set it to True and then reset. Similar to Word Search II.
 ```
 class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
