@@ -1,4 +1,5 @@
 ### 129. Sum Root to Leaf Numbers
+Medium
 
 Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
 
@@ -38,6 +39,7 @@ Therefore, sum = 495 + 491 + 40 = 1026.
 ```
 
 ### Solution:
+- 11/3/2021 update: got a clean python solution
 - GOTCHA: need to do parseInt base 10 in case of leading zeroes!
 - Create helper function that takes in a node and list of numbers
 - If I am null, then return list of numbers to a global result array
@@ -45,6 +47,43 @@ Therefore, sum = 495 + 491 + 40 = 1026.
 - Recurse with helper using node.left or node.right and the new arrays
 - Sum up the global array and return result
 
+Python Solution
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        total = 0
+        
+        def helper(node, total_so_far):
+            nonlocal total
+            if not node:
+                return
+            
+            new_sum = total_so_far * 10 + node.val
+            
+            if not node.left and not node.right:
+                total += new_sum
+                return                
+
+            if node.left:
+                helper(node.left, new_sum)
+            if node.right:
+                helper(node.right, new_sum)
+            
+    
+        helper(root, 0)
+        
+        return total
+                
+        
+```
+
+JS Solution
 ```
 /**
  * Definition for a binary tree node.
