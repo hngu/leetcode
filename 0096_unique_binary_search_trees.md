@@ -24,6 +24,7 @@ Given n = 3, there are a total of 5 unique BST's:
 `1 <= n <= 19`
 
 ### Solution:
+Fastest solution: use math (Catalan numbers) to solve it.
 
 The intuition:
 For each node, treat that as the root node, as r. Then get the number of possible binary search trees on the left using [1,...r]. Then get the possible number of 
