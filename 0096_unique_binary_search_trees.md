@@ -32,6 +32,32 @@ or equal to the root and elements on right are greater than the root.
 
 You can use dynamic programming with recurison the store the precomputed unique binary search trees for a given set of nodes.
 
+Python Solution
+```
+class Solution:
+    def numTrees(self, n: int) -> int:
+        lookup = {}
+        
+        def helper(start, end):
+            total = 0
+            if start >= end:
+                return 1
+            
+            key = (start, end)
+            if lookup.get(key) is not None:
+                return lookup.get(key)
+            
+            for i in range(start, end + 1):                
+                total += (helper(start, i - 1) * helper(i + 1, end))
+            
+            lookup[key] = total
+            return total
+        
+        return helper(1, n)
+        
+```
+
+JS Solution
 ```
 /**
  * @param {number} n
