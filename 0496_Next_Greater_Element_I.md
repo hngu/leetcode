@@ -32,7 +32,7 @@ Explanation: The next greater element for each value of nums1 is as follows:
 **Constraints:**
 ```
 1 <= nums1.length <= nums2.length <= 1000
-0 <= nums1[i], nums2[i] <= 104
+0 <= nums1[i], nums2[i] <= 10^4
 All integers in nums1 and nums2 are unique.
 All the integers of nums1 also appear in nums2.
 ``` 
@@ -41,6 +41,7 @@ Follow up: Could you find an O(nums1.length + nums2.length) solution?
 
 **Tags**
 - Revisit
+- Stack
 
 ### Solution
 I did the 0(n^2) solution. Below is the linear solution.
