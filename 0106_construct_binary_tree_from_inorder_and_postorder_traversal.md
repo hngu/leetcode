@@ -20,6 +20,12 @@ Return the following binary tree:
 ```
 
 ### Solution:
+There is a O(n) time, O(n) space solution which I have not attempted:
+- Use a hashmap to map the location of the inorder nodes -> index
+- Create a helper function that will tell you what inorder range to search for (inStart, inEnd) so you don't have to create new lists every time.
+- Build tree using the inStart, inEnd and the postorder array.
+
+My solution:
 - First observation: the root node is the last element in the postorder array
 - If we can find that element in the inorder array, then the inorder array will tell us that things to the left are left children and things to the right are right children
 - We recursively do this with the right sub tree first
