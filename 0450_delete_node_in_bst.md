@@ -43,7 +43,7 @@ root is a valid binary search tree.
 **Tags**
 - Revisit
 - Binary Search Tree, BST
-- 
+
 ### Solution:
 - There are three cases:
 - The target node has not children: easy delete
