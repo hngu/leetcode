@@ -1,4 +1,5 @@
 ### 152. Maximum Product Subarray
+Medium
 
 Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.
 
@@ -15,6 +16,9 @@ Input: [-2,0,-1]
 Output: 0
 Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 ```
+**Tags**
+- Revisit
+- Kadane
 
 ### Solution:
 - I did not know how to solve this. I knew I had to use some form of Kadane's algorithm but 
