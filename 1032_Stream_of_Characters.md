@@ -43,7 +43,13 @@ letter is a lowercase English letter.
 At most 4 * 10^4 calls will be made to query.
 ```
 
+**Tags**
+- Revisit
+
+
 ### Solution
+- The most straightforward solution is to create a trie, and for each query letter you have a list of candidates and check if a candiate has that character suffix. If there are no candidates or is not a word yet, then return False. If any candidate reaches a word, return True.
+- The best solution is to create a trie, but store the words backwards! Then you look up the entire stream in the trie. The tricky part here is how to store the trie backwards so that you know if you reached a word. You will need to create a flag for that.
 ```
 class TrieNode:
     def __init__(self, char, isWord=False):
