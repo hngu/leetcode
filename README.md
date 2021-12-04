@@ -18,7 +18,7 @@ Strategies:
 - Dynamic Programming via Top-Down vs Bottom-Up
 
 Data Structures:
-- Trie
+- Trie (you only ever need one trie when solving a problem)
 - Heap
 - Binary Index Tree (Fenwick Tree)
 - Segment Tree
