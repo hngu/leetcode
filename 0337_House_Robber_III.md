@@ -41,7 +41,7 @@ The number of nodes in the tree is in the range [1, 10^4].
 
 ### Solution
 - My solution uses recursion with DP memoization.
-- There is a bottom up solution
+- There is a bottom up solution below this one.
 ```
 # Definition for a binary tree node.
 # class TreeNode:
@@ -80,5 +80,45 @@ class Solution:
             return dp[index]
 
         return helper(root)
+        
+```
+Bottom up solution
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rob(self, root: Optional[TreeNode]) -> int:
+        """
+            Bottom up DP
+            Get either robbing the current, or the next
+            First, recursively go down and get the left and right children's results
+            
+            1. Then compute node.val + children's children values
+            2. Compute max of children or children's children
+            
+            Return both 1 + 2
+            
+            Get the max of 1 + 2 at root level
+        """
+        def helper(node):
+            if not node:
+                return (0, 0)
+            
+            left = helper(node.left)
+            right = helper(node.right)
+            
+            # rob current node, and best of left's, right's next value
+            current = node.val + left[1] + right[1]
+            
+            # rob left's, right's children or grandchildren based on max
+            next_value = max(left[0], left[1]) + max(right[0], right[1])
+            
+            return (current, next_value)
+    
+        return max(helper(root))
         
 ```
