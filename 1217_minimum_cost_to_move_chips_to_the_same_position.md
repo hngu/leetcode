@@ -1,4 +1,5 @@
 ### 1217. Minimum Cost to Move Chips to The Same Position
+Easy
 
 We have n chips, where the position of the ith chip is position[i].
 
@@ -41,6 +42,9 @@ Output: 1
 1 <= position.length <= 100
 1 <= position[i] <= 10^9
 ```
+
+**Tags**
+- Revisit
 
 ### Solution:
 ```
