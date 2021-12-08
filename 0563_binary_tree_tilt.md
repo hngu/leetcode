@@ -1,4 +1,5 @@
 ### 563. Binary Tree Tilt
+Easy
 
 Given the root of a binary tree, return the sum of every tree node's tilt.
 
