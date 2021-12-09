@@ -41,10 +41,12 @@ Explanation: There is no way to reach at index 1 with value 0.
 **Tags**
 - Revisit
 - Dynamic Programming
+- DFS (Depth first search)
 
 
 ### Solution
 - I messed up where I had only a visited array that only recorded if you visited in any direction. I have to record visited going from the left, or going from the right.
+- You don't need DP. Just use DFS with a visited array. Worse case, you will need to explore all `arr.length * 2` and having a single visited array is fine. Don't need to record going left or right. You just have to set visited, then explore both left and right.
 ```
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
@@ -81,4 +83,19 @@ class Solution:
         
         return helper(start)
         
+```
+Better, intuitive solution I copied from leetcode:
+```
+visited = set()
+    def helper(ind):
+        nonlocal visited
+        if ind in visited:
+            return 
+        if 0 <= ind < len(arr):
+            if arr[ind] == 0:
+                return True
+            visited.add(ind)
+            return  helper(ind + arr[ind]) or helper(ind - arr[ind])
+        
+    return helper(start)
 ```
