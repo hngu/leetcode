@@ -47,43 +47,23 @@ s contains only lowercase English letters.
 ```
 class Solution:
     def maxPower(self, s: str) -> int:
-        """
-            Cannot use a hashmap because it does not take into account
-            consecutive length.
-            
-            set maxCount = 0
-            set count = 0
-            for each char in s:
-            set comparisonChar to char if it is null
-            if comparsionChar == char, increment count
-            else set comparisonChar to char
-            maxCount = max(count, maxCount)
-            count = 0
-            
-            IMPORTANT: do maxCount = max(count, maxCount)
-            in the end in case the string is "aaaa" and never sets
-            maxCount in the else
-        """
-        maxCount = 0
-        count = 0
-        comparisonChar = None
+        count = 1
+        max_count = count
+        ptr = 1
+        current_char = s[0]
+        length = len(s)
         
-        for char in s:
-            if comparisonChar is None:
-                comparisonChar = char
-
-            if comparisonChar == char:
+        while ptr < length:
+            next_char = s[ptr]
+            if next_char == current_char:
                 count += 1
-                continue
+                max_count = max(count, max_count)
             else:
-                comparisonChar = char
-                maxCount = max(count, maxCount)
                 count = 1
+                max_count = max(count, max_count)
+                current_char = next_char
+            
+            ptr += 1
         
-        # so dumb! there might not be a change in chars
-        # so need to update maxCount if it never goes 
-        # to the else above!
-        maxCount = max(maxCount, count)
-        return maxCount
-        
+        return max_count
 ```
