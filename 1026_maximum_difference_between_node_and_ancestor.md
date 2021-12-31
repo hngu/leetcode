@@ -1,4 +1,5 @@
 ### 1026. Maximum Difference Between Node and Ancestor
+Medium
 
 Given the root of a binary tree, find the maximum value V for which there exist different nodes A and B where V = |A.val - B.val| and A is an ancestor of B.
 
@@ -35,6 +36,12 @@ Output: 3
 ```
 The number of nodes in the tree is in the range [2, 5000].
 0 <= Node.val <= 105
+
+**Tags**
+- Revisit
+- Binary Tree
+- Binary Search Tree
+
 ```
 
 ### Solution:
