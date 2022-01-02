@@ -1,4 +1,5 @@
 ### 1010. Pairs of Songs With Total Durations Divisible by 60
+Medium
 
 You are given a list of songs where the ith song has a duration of time[i] seconds.
 
@@ -26,6 +27,10 @@ Explanation: All three pairs have a total duration of 120, which is divisible by
 1 <= time.length <= 6 * 104
 1 <= time[i] <= 500
 ```
+
+**Tags**
+- Revisit
+- hashmap
 
 ### Solution:
 ```
