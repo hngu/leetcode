@@ -1,4 +1,5 @@
 ### 1094. Car Pooling
+Medium
 
 You are driving a vehicle that has capacity empty seats initially available for passengers.  The vehicle only drives east (ie. it cannot turn around and drive west.)
 
@@ -154,4 +155,31 @@ var carPooling = function(trips, capacity) {
     
     return true;
 };
+```
+**Wrote another solution after 16 months away from this**
+```
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        """
+            Build an array of 1001
+            For each trip: [num_pass, from, to]
+            - add num_pass at arr[from]
+            - subtract num_pass at arr[to]
+            Then go through the array, adding values -
+            If it ever goes above capacity, return false
+            return True
+        """
+        arr = [0] * 1001
+        
+        for num_pass, from_, to_ in trips:
+            arr[from_] += num_pass
+            arr[to_] -= num_pass
+        
+        total = 0
+        for i in arr:
+            total += i
+            if total > capacity:
+                return False
+        
+        return True
 ```
