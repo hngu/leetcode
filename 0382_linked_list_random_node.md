@@ -1,4 +1,5 @@
 ### 382. Linked List Random Node
+Medium
 
 Given a singly linked list, return a random node's value from the linked list. Each node must have the same probability of being chosen.
 
@@ -16,6 +17,9 @@ Solution solution = new Solution(head);
 // getRandom() should return either 1, 2, or 3 randomly. Each element should have equal probability of returning.
 solution.getRandom();
 ```
+
+**Tags**
+- Revisit
 
 ### Solution:
 - I decided to get the size first, then randomly select an element within that size.
