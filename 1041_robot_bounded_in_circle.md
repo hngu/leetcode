@@ -1,4 +1,5 @@
 ### 1041. Robot Bounded In Circle
+Medium
 
 On an infinite plane, a robot initially stands at (0, 0) and faces north.  The robot can receive one of three instructions:
 
@@ -92,4 +93,56 @@ var isRobotBounded = function(instructions) {
     
     return false;
 };
+```
+Python Solution
+```
+class Solution:
+    def isRobotBounded(self, instructions: str) -> bool:
+        """
+            If you change direction at all, then return false
+            However, if you change direction but didn't move
+            then return true
+            
+            Calculate the vector of the final position of the robot
+        """
+        position = (0, 0)
+        instructions = list(instructions)
+        north = (0, 1)
+        south = (0, -1)
+        east = (1, 0)
+        west = (-1, 0)
+        direction = north
+        
+        for instruction in instructions:
+            if instruction == 'G':
+                delta_x, delta_y = direction
+                position = (position[0] + delta_x, position[1] + delta_y)
+                continue
+                
+            if instruction == 'L':
+                if direction == north:
+                    direction = west
+                elif direction == south:
+                    direction = east
+                elif direction == east:
+                    direction = north
+                else:
+                    direction = south
+            else:
+                if direction == north:
+                    direction = east
+                elif direction == south:
+                    direction = west
+                elif direction == east:
+                    direction = south
+                else:
+                    direction = north
+        
+        if position == (0, 0):
+            return True
+        
+        if direction != north:
+            return True
+        
+        return False
 ```
