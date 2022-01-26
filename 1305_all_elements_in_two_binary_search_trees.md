@@ -45,6 +45,11 @@ Each node's value is between [-10^5, 10^5].
 - Traverse each tree and put the values in their respective lists
 - Merge both lists
 - I MESSED UP ON THE MERGING - I NEED TO CHECK IF BOTH OR ANY NODE WAS UNDEFINED
+- A better solution: 
+    - store the left side of both trees in a stack
+    - compare then pop the small one
+    - if the small has a right subtree, add all of the left side of that right subtree
+    - Space is optimized to the height of the tree in the stack
 
 ```
 /**
