@@ -42,6 +42,7 @@ Tips:
 - When stuck, work backwards from a solution. Assuming you had the solution - how would you move backwards to get to the original problem?
 - Power set: for each number, get the subset of the rest of the numbers with and without that number. Think bit flipping.
 - Permuations: ordering of elements. Order is important. To generate permutations, for each number pick it then permute the rest of the numbers
+- Binary Search Tree stack traversal: store the left side of tree, then pop. If the popped element has a right subtree, store its left side tree.
 
 Questions:
 - What data type will the input be? Will it always be the same data type?
