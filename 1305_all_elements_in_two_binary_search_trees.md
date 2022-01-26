@@ -1,4 +1,5 @@
 ### 1305. All Elements in Two Binary Search Trees
+Medium
 
 Given two binary search trees root1 and root2.
 
