@@ -1,4 +1,5 @@
 ### 211. Design Add and Search Words Data Structure
+Medium
 
 Design a data structure that supports adding new words and finding if a string matches any previously added string.
 
@@ -138,4 +139,59 @@ WordDictionary.prototype.search = function(word) {
  * obj.addWord(word)
  * var param_2 = obj.search(word)
  */
+```
+Python Solution
+```
+class TrieNode:
+    def __init__(self, letter):
+        self.letter = letter
+        self.children = {}
+        self.isEnd = False
+
+        
+class WordDictionary:
+
+    def __init__(self):
+        self.root = TrieNode('*')
+        
+
+    def addWord(self, word: str) -> None:
+        current = self.root
+        
+        for char in word:
+            if not current.children.get(char):
+                node = TrieNode(char)
+                current.children[char] = node
+            current = current.children.get(char)
+            
+        current.isEnd = True
+        
+
+    def searchWith(self, word, node, pointer):
+        length = len(word)
+        current = node
+        
+        while pointer < length:
+            char = word[pointer]
+            if char == '.':
+                for child in current.children.values():
+                    if self.searchWith(word, child, pointer + 1):
+                        return True
+                return False
+
+            if not current.children.get(char):
+                return False
+            current = current.children.get(char)
+            pointer += 1
+        
+        return current.isEnd
+    
+    def search(self, word: str) -> bool:
+        return self.searchWith(word, self.root, 0)    
+
+
+# Your WordDictionary object will be instantiated and called as such:
+# obj = WordDictionary()
+# obj.addWord(word)
+# param_2 = obj.search(word)
 ```
