@@ -1,4 +1,5 @@
 ### 525. Contiguous Array
+Medium
 
 Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
 
@@ -83,4 +84,31 @@ var findMaxLength = function(nums) {
     }
     return answer;
 };
+```
+Python Solution
+- Using the map to store the first occurrence of when a count was set is genius
+```
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
+        length = len(nums)
+        answer = 0
+        count = 0
+        first_occurrence = {}
+        first_occurrence[0] = -1
+        
+        for i in range(length):
+            num = nums[i]
+            if num == 0:
+                count -= 1
+            else:
+                count += 1
+            
+            if first_occurrence.get(count) is None:
+                first_occurrence[count] = i
+            else:
+                answer = max(answer, i - first_occurrence[count])
+        
+        return answer
+            
+                
 ```
