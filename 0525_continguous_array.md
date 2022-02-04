@@ -18,6 +18,9 @@ Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal numb
 ```
 Note: The length of the given binary array will not exceed 50,000.
 
+**Tags**
+- Revisit
+
 
 ### Solution:
 - create an array that will keep track of 1s and 0s at each point. If you see a zero, subtract from count. If you see a one, add to count.
