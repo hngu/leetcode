@@ -92,3 +92,56 @@ class Solution:
         
         return len(nums)
 ```
+When you can't delete the array:
+```
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        """
+            Have two pointers - 
+            1. This one will set the k elements
+            2. this one moves ahead to find what values to set for first pointer
+            
+            Have both those pointers at index 0
+            set dup count = 0
+            while second pointer < length - 1:
+            if second pointer != second pointer + 1:
+            move first and second pointer and set dup = 0
+            else
+            set dup count += 1
+            if dup count > 2:
+            move second pointer to next increasing number
+            move first and second pointer
+        """
+        ptr1 = 0
+        ptr2 = 0
+        dup = 0
+        length = len(nums)
+        
+        while ptr2 < length:
+            if ptr2 == length - 1:
+                nums[ptr1] = nums[ptr2]
+                break
+            
+            current = nums[ptr2]
+            next_ele = nums[ptr2 + 1]
+            
+            if current != next_ele:
+                dup = 0
+            else:
+                dup += 1
+            
+            if dup > 1:
+                while ptr2 < length - 1 and nums[ptr2 + 1] == current:
+                    ptr2 += 1
+                dup = 0
+            
+            nums[ptr1] = nums[ptr2]
+            if ptr2 == length - 1:
+                break
+            
+            ptr1 += 1
+            ptr2 += 1
+        
+        return ptr1 + 1
+        
+```
