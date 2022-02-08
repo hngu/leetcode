@@ -36,10 +36,6 @@ Note that 'A' and 'a' are treated as two different characters.
 s consists of uppercase and lowercase English letters and digits.
 ```
 
-**Tags**
-- Revisit
-- because I didn't pay attention to the sorting requirement: sort by freq first, then by chars, both desc.
-
 ### Solution
 ```
 class Solution:
