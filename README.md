@@ -3,7 +3,7 @@
 Strategies:
 - Go with the naive algorithm first! Then think about optimizations.
 - Sliding Window
-- Prefix/Suffix Sum, Prefix/Suffic Min or Max
+- Prefix/Suffix Sum, Prefix/Suffix Min or Max
 - Interval Problems: use a stack and modify the last stack item if overlap, otherwise add it stack.
 - Linked List: using a sentinel node.
 - Linked List: slow and fast pointer. Have a fast pointer move by 2 while slow pointer goes by 1. OR if you want k difference, move fast pointer to k. Then move them both one by one.
@@ -44,6 +44,12 @@ Tips:
 - Permuations: ordering of elements. Order is important. To generate permutations, for each number pick it then permute the rest of the numbers
 - Binary Search Tree stack traversal: store the left side of tree, then pop. If the popped element has a right subtree, store its left side tree.
 - First occurrence map: store the first occurence of a number in a map when you iterate over an array. If you see it again, then you can calculate the length between them by taking `i - map[num]`
+- 2D array backtracking: for word search, have a global 2D visited matrix. In a for loop, set the visited cell to True and recurse. At the end of the recurse before the loop ends, set the visited cell back to False.
+- DP Grid area calculations: see if a cell's DP can be calculated from its neighboring cells. For example: `dp[i][j] = min(dp[above it], dp[left of it], dp[diagnoal))`
+- Problems where it asks you to solve it in constant space and in linear time: try modifying the original array. Use markers like setting a number to a negative.
+- 4Sum: two O(n^2) loops with map: one for a + b and the other for c + d.
+- Monotonic stacks are a good option when a problem involves comparing the size of numeric elements, with their order being relevant.
+- Any manual math calculations: move backwards and always consider carries! At the end of the loop do one final computation for carries.
 
 Questions:
 - What data type will the input be? Will it always be the same data type?
