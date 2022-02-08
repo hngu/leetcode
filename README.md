@@ -50,6 +50,7 @@ Tips:
 - 4Sum: two O(n^2) loops with map: one for a + b and the other for c + d.
 - Monotonic stacks are a good option when a problem involves comparing the size of numeric elements, with their order being relevant.
 - Any manual math calculations: move backwards and always consider carries! At the end of the loop do one final computation for carries.
+- Be careful of parsing strings that contains numbers. A number can be multidigit like: `123+456`
 
 Questions:
 - What data type will the input be? Will it always be the same data type?
