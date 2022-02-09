@@ -1,4 +1,5 @@
 ### 532. K-diff Pairs in an Array
+Medium
 
 Given an array of integers nums and an integer k, return the number of unique k-diff pairs in the array.
 
