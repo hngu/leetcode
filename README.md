@@ -45,6 +45,7 @@ Tips:
 - Binary Search Tree stack traversal: store the left side of tree, then pop. If the popped element has a right subtree, store its left side tree.
 - First occurrence map: store the first occurence of a number in a map when you iterate over an array. If you see it again, then you can calculate the length between them by taking `i - map[num]`
 - 2D array backtracking: for word search, have a global 2D visited matrix. In a for loop, set the visited cell to True and recurse. At the end of the recurse before the loop ends, set the visited cell back to False.
+- Another example of backtracking is course scheduling and topsort. For example, you can have a visited array when processing a course and its prerequisites. If there is a cycle, that visited array should have it set to true. Once you process a course and prereqs, then set the visited at the end of the loop to False.
 - DP Grid area calculations: see if a cell's DP can be calculated from its neighboring cells. For example: `dp[i][j] = min(dp[above it], dp[left of it], dp[diagnoal))`
 - Problems where it asks you to solve it in constant space and in linear time: try modifying the original array. Use markers like setting a number to a negative.
 - 4Sum: two O(n^2) loops with map: one for a + b and the other for c + d.
