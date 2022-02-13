@@ -52,6 +52,7 @@ Tips:
 - Monotonic stacks are a good option when a problem involves comparing the size of numeric elements, with their order being relevant.
 - Any manual math calculations: move backwards and always consider carries! At the end of the loop do one final computation for carries.
 - Be careful of parsing strings that contains numbers. A number can be multidigit like: `123+456`
+- Word ladder hard: create a graph using a hashmap of pattern -> list of candidates like: `patterns[h*t] = [hot, hit]`. Also, you can use the count data structure as a way to check if you visited a node and skip processing.
 
 Questions:
 - What data type will the input be? Will it always be the same data type?
