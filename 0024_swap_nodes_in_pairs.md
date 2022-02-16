@@ -35,6 +35,7 @@ The number of nodes in the list is in the range [0, 100].
 
 ### Solution:
 - Have a left and right pointer that is eligible for swapping. This is linear time.
+- The idea is to take two at a time, swap them, then add them to the resulting linked list.
 - Another solution I had was split the linked list into two, then combine them. This is 2(n) linear time.
 ```
 # Definition for singly-linked list.
