@@ -83,3 +83,31 @@ var combinationSum = function(candidates, target) {
     return [...result].map(ans => ans.split('_'));
 };
 ```
+Python:
+```
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        """
+            Have a set to get the unique combos
+            
+            Use recursion which will take a current sum, current numbers
+            Maybe need DP?
+        """
+        result = set()
+        
+        def recurse(current_sum, current_numbers):
+            if current_sum == 0:
+                current_numbers.sort()
+                result.add(tuple(current_numbers))
+                return
+            
+            for candidate in candidates:
+                if current_sum - candidate >= 0:
+                    temp = current_numbers[:]
+                    temp.append(candidate)
+                    recurse(current_sum - candidate, temp)
+    
+        recurse(target, [])
+        
+        return list(result)
+```
