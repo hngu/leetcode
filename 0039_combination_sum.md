@@ -50,6 +50,7 @@ All elements of candidates are distinct.
 
 ### Solution:
 - Just generate all the combos. No other way to do it.
+- An optimization is to not try all the candidates in each loop. Have a starting index and once you tried that index, move to the next one.
 ```
 /**
  * @param {number[]} candidates
@@ -94,20 +95,22 @@ class Solution:
             Maybe need DP?
         """
         result = set()
+        length = len(candidates)
         
-        def recurse(current_sum, current_numbers):
+        def recurse(current_sum, current_numbers, index):
             if current_sum == 0:
                 current_numbers.sort()
                 result.add(tuple(current_numbers))
                 return
             
-            for candidate in candidates:
+            for i in range(index, length):
+                candidate = candidates[i]
                 if current_sum - candidate >= 0:
                     temp = current_numbers[:]
                     temp.append(candidate)
-                    recurse(current_sum - candidate, temp)
+                    recurse(current_sum - candidate, temp, i)
     
-        recurse(target, [])
+        recurse(target, [], 0)
         
         return list(result)
 ```
