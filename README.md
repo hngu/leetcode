@@ -50,6 +50,7 @@ Tips:
 - Problems where it asks you to solve it in constant space and in linear time: try modifying the original array. Use markers like setting a number to a negative.
 - 4Sum: two O(n^2) loops with map: one for a + b and the other for c + d.
 - Monotonic stacks are a good option when a problem involves comparing the size of numeric elements, with their order being relevant.
+- Another example usage of monotonic stack is removing k digits.
 - Any manual math calculations: move backwards and always consider carries! At the end of the loop do one final computation for carries.
 - Be careful of parsing strings that contains numbers. A number can be multidigit like: `123+456`
 - Word ladder hard: create a graph using a hashmap of pattern -> list of candidates like: `patterns[h*t] = [hot, hit]`. Also, you can use the count data structure as a way to check if you visited a node and skip processing.
