@@ -34,6 +34,17 @@ for (let i = 0; i < rows; i++) {
 ## Objects
 
 ## Maps
+- initialize: `const m = new Map()`
+- add a mapping: `m.set(key, value)`
+- get a mapping: `m.get(key)`
+- delete a mapping: `m.delete(key)`
+- has a mapping: `m.has(key)`
+- `map.clear()`
+- `map.size`
+- for iteration, you can do `map.forEach(value, key)`
+- or you can do `for (let [key, value] of map.entries()) {}` or even `for (let [key, value] of map) {}`
+- keys: `map.keys()`
+- values: `map.values()`
 
 ## Sets
 - Initialize empty set: `const s = new Set()`
