@@ -29,6 +29,8 @@ for (let i = 0; i < rows; i++) {
 - `Array.shift()`: removes the first element
 - `Array.unshift()`: adds element to the front
 
+## Strings
+
 ## Objects
 
 ## Maps
