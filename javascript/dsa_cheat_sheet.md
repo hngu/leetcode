@@ -28,3 +28,25 @@ for (let i = 0; i < rows; i++) {
 - `Array.sort()`
 - `Array.shift()`: removes the first element
 - `Array.unshift()`: adds element to the front
+
+## Objects
+
+## Maps
+
+## Sets
+- Initialize empty set: `const s = new Set()`
+- With list: `const s = new Set([1,2,3,4,5])`
+- set size: `s.size`
+- `s.add(value)`
+- `s.delete(value)`
+- `s.has(value)`
+- iteration: `s.forEach(() =>)` or 
+```
+const mySet = new Set([1, 2, 3]);
+
+for (const value of mySet) {
+  console.log(value); // logs 1, 2 and 3
+}
+```
+- clear the set: `s.clear()`
+- get a list from the set: `const arr = [...mySet]`
