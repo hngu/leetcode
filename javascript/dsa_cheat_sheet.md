@@ -30,8 +30,18 @@ for (let i = 0; i < rows; i++) {
 - `Array.unshift()`: adds element to the front
 
 ## Strings
+- iterate character of string with standard for loop: `for (let i = 0; i < str.length; i++) { str[i] }`
+- Search for character: `str.includes()` or `str.indexOf()` or `str.match()` or `str.search`
+- `str.replace()`: useful for replacing things with a regex
+- `str.split(separator)
+- `str.substring(start, end)`: note it goes up to end, not including end
 
 ## Objects
+- simpler than `Map()`
+- Get keys as list: `obj.keys()`
+- Get values as list: `obj.values()`
+- Iterate both: `for (const [key, value] of Object.entries(obj)`
+- NOTE: keys are stored as strings
 
 ## Maps
 - initialize: `const m = new Map()`
