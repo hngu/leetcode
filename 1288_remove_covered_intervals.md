@@ -1,4 +1,5 @@
 ### 1288. Remove Covered Intervals
+Medium
 
 Given a list of intervals, remove all intervals that are covered by another interval in the list.
 
