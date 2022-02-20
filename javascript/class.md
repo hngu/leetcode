@@ -2,7 +2,7 @@
 
 ## Basic class
 ```
-export class Person {
+class Person {
   name;
   #id;
 
@@ -33,5 +33,7 @@ export class Person {
 
   static sameName(a, b) {
     return a.name === b.name;
+  }
+}
 ```
 - class declarations are not hoisted
