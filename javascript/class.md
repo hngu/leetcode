@@ -60,3 +60,8 @@ class Employee extends Person {
 ```
 - the `super` keyword is used to access/call parent's functions
 - If constructor present in subclass, must call `super()` before using `this`
+
+## Notes
+- Use to model "is-a" relationships
+- Prefer composition over inheritance
+- Too many subclassing can be diffult to develop/maintain
