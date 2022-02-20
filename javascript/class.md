@@ -5,27 +5,33 @@
 export class Person {
   name;
   #id;
-  address;
-  
+
+  static counter = 0;
+
   constructor(name) {
     this.name = name;
-    #id = Math.random();
+    this.#id = Math.random();
+    Person.counter += 1;
   }
-  
+
   greet() {
     console.log(`Hello my name is ${this.name}`);
   }
-  
+
   #privateMethod() {
     console.log('private method');
   }
-  
-  get address() {
-    return this.address;
+
+  get info() {
+    return [this.name, this.#id];
   }
-  
-  setAddress(a) {
-    this.address = a;
+
+  setInfo(n, id) {
+    this.name = n;
+    this.#id = id;
   }
-}
+
+  static sameName(a, b) {
+    return a.name === b.name;
 ```
+- class declarations are not hoisted
