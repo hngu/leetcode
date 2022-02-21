@@ -19,7 +19,7 @@ Strategies:
 
 Data Structures:
 - Trie (you only ever need one trie when solving a problem)
-- Heap
+- Heap (given index i, the parent node is `arr[(i - 1) // 2]`, the left node is `arr[(i * 2) + 1]` and the right node is `arr[(i * 2) + 2]`
 - Binary Index Tree (Fenwick Tree)
 - Segment Tree
 
