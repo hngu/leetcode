@@ -6,6 +6,8 @@
 - Block Scope
 
 ## Hoisting
+- declarations are hoisted, not initializations
+- `var` variables are hoisted
 
 ## The `this` keyword
 
