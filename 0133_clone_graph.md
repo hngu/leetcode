@@ -1,4 +1,5 @@
 ### 133. Clone Graph
+Medium
 
 Given a reference of a node in a connected undirected graph.
 
