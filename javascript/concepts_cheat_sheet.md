@@ -10,7 +10,11 @@
 - `var` variables are hoisted
 
 ## The `this` keyword
-- Refers to the calling object
+- It refers to an object and what that object refers to depends on how it is called or used.
+- If an object calls its methods and the method has a `this` keyword, then it refers to the object.
+- If `this` is called in a function, it refers to the function
+- If `this` is called outside anything, it refers to the global object.
+- `this` can be changed via apply, call and bind
 
 ## Closures
 - Allows a inner function to recall variables declared in a outer function even after the outer function finishes execution.
