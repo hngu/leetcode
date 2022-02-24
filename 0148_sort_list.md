@@ -1,4 +1,5 @@
 ### 148. Sort List
+Medium
 
 Given the head of a linked list, return the list after sorting it in ascending order.
 
@@ -26,14 +27,90 @@ Output: []
 
 **Constraints:**
 ```
-The number of nodes in the list is in the range [0, 5 * 104].
--105 <= Node.val <= 105
+The number of nodes in the list is in the range [0, 5 * 10^4].
+-10^5 <= Node.val <= 10^5
 ```
 
 ### Solution:
+- Update: Python solution using merge sort and recursion so hope that counts as constant space.
 - My solution did not take constant space. It takes O(n) space.
 - To take constant space, you have to merge sort the lists.
 
+Python Solution
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+            Use the sortList function recursively
+            
+            Split the list in half and sortList each of them
+            
+            Then while list1 or list2:
+            - take the smallest
+            - add to result list
+            
+            return result list
+        """
+        if not head:
+            return None
+        
+        if not head.next:
+            return head
+        
+        slow_ptr = head
+        fast_ptr = head
+        
+        while fast_ptr and fast_ptr.next and fast_ptr.next.next:
+            fast_ptr = fast_ptr.next.next
+            slow_ptr = slow_ptr.next
+        
+        second_head = slow_ptr.next
+        slow_ptr.next = None
+        
+        first_list = self.sortList(head)
+        second_list = self.sortList(second_head)
+        result = ListNode()
+        temp = result
+        
+        
+        while first_list or second_list:
+            first_val = None
+            second_val = None
+            
+            if first_list:
+                first_val = first_list.val
+            
+            if second_list:
+                second_val = second_list.val
+            
+            if first_val is not None and second_val is not None:
+                if first_val < second_val:
+                    temp.next = first_list
+                    first_list = first_list.next
+                else:
+                    temp.next = second_list
+                    second_list = second_list.next
+            elif first_val is not None:
+                temp.next = first_list
+                first_list = first_list.next
+            else:
+                temp.next = second_list
+                second_list = second_list.next
+            
+            temp = temp.next
+        
+        return result.next
+                
+                
+        
+```
+
+JS Solutions
 ```
 /**
  * Definition for singly-linked list.
