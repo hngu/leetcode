@@ -25,7 +25,7 @@ Data Structures:
 
 Python:
 - use deque for lists: they have better performance
-- SortedList: let's you find elements strictly greater than / less than x in O(log n) time using bisect_left or bisect_right.
+- SortedList: let's you find elements strictly greater than / less than x in O(log n) time using bisect_left or bisect_right. Also, when adding or removing an item, it re-sorts.
 - Copy list: `nums[:]`
 - list slicing: ok if out of bounds `nums[0:11111]` or `nums[111111:]` they both return empty lists
 - this will initialize a matrix: `res = [ [ 0 for i in range(M) ] for j in range(N) ]`
