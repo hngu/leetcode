@@ -1,4 +1,5 @@
 ### 165. Compare Version Numbers
+Medium
 
 Compare two version numbers version1 and version2.
 If version1 > version2 return 1; if version1 < version2 return -1;otherwise return 0.
@@ -82,3 +83,28 @@ var compareVersion = function(version1, version2) {
     
     return 0;
 };
+```
+Python:
+```
+class Solution:
+    def compareVersion(self, version1: str, version2: str) -> int:
+        version1 = version1.split('.')
+        version2 = version2.split('.')
+        
+        ptr = 0
+        length1 = len(version1)
+        length2 = len(version2)
+        
+        while ptr < length1 or ptr < length2:
+            rv1 = int(version1[ptr]) if ptr < length1 else 0
+            rv2 = int(version2[ptr]) if ptr < length2 else 0
+            
+            if rv1 < rv2:
+                return -1
+            elif rv1 > rv2:
+                return 1
+            
+            ptr += 1
+        
+        return 0
+```
