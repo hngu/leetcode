@@ -40,3 +40,19 @@ Using BFS is better than DFS because it will find the shortest path whereas DFS 
 - start at that node and do a DFS for all child nodes
 - on the recursive callback, add the current node to the topological ordering
 
+### Floyd-Warshall Algorithm
+- Computes Shortest path for all pair of nodes
+- Works with negative weights
+
+**The Algorithm**
+- First, setup an adjacency matrix with default values set to infinity or a really large number to avoid integer overflow
+- We will use this adj matrix to store shortest path between i and j: `mat[i][j]`
+- For each node, `i` in the graph:
+  - Each `mat[i][i]` to denote that it does not cost anything to visit itself
+  - Set the distance between i and its neighbors to its current weight. For example if node i is connected to neighboring node j with a weight of 2, set it to `mat[i][j] = 2` and remember this is for neighboring nodes only
+ - Now to compute the rest of the distances, we set 3 for loops:
+ - For each i in nodes:
+ - For each j in nodes:
+ - For each k in nodes:
+  - `mat[i][j] = min(mat[i][j], mat[i][k] + mat[k][j])`
+- And thats it! It works because we try every intermediary node to see if there is a shorter path and we try it forwards (i -> k -> j) and backwards (j -> k -> i) in case we didn't compute it correctly the first time going forward because the intermediary node distances aren't computed yet     
