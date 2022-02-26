@@ -45,7 +45,7 @@ Brute Force
 - The brute force is to calculate the max area between each pair of column from i -> j while also taking into account that there is a min height between i and j.
 - For each i:
 - min height = i
-- for each j where j > i:
+- for each j where j >= i:
 - min height = min(min_height, j)
 - max area = max(max_area, min_height * (j - i + 1))
 - But this is O(n^2) which is too slow
