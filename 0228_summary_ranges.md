@@ -1,4 +1,5 @@
 ### 228. Summary Ranges
+Easy
 
 You are given a sorted unique integer array nums.
 
