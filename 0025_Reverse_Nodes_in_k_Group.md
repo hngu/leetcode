@@ -45,6 +45,10 @@ Follow-up: Can you solve the problem in O(1) extra memory space?
 - linked list
 
 ### Solution
+- Basically, remove the the first k nodes to its own list, shouldn't take extra memory as you are just detaching
+- Then reverse that list
+- Then connect to the resulting list
+
 - We need a state of newHead and newTail that represents the final solution
 - We need a set of k elements that represent the k elements in the list
 - We reverse that list (do not reverse as you go, reverse when you get the first k elements)
