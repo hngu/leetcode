@@ -36,6 +36,7 @@ It is very easy to come up with a solution with a runtime of O(n log n). Can you
 Can you do it without using any built-in function (i.e., like __builtin_popcount in C++)?
 
 ### Solution
+- The number of bits for i is the number bits at`[i // 2]` plus the last bit `i % 2`. 
 ```
 /**
  * @param {number} num
