@@ -28,6 +28,7 @@ Output: 0
 ```
 
 ### Solution
+- there is a linear solution, but I don't know what the exact implementation looks like
 - brute force get every subarray and check for arithmetic sequence. O(n^2) time, constant space
 ```
 /**
