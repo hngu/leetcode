@@ -30,3 +30,8 @@
 - When JS executes an async function like timeout, it lets the web/c++ API take care of the async task in a separate thread and when it is done, it will put the callback in the callback queue.
 - when JS is done executing tasks in the call stack, it will check if there are any functions in the callback queue to execute, and if there are, it will remove a task FIFO and execute it in the call stack
 - The event loop is responsible for checking if the call stack is empty and if it is, then checking if there is a pending callback in the event queue and if there is, it will push the callback into the call stack for JS to be executed.
+
+
+## Unicode
+- JS strings should be treated as a sequence of code units, not a sequence of symbols. Each character can be represented by one or more code units.
+- Use string.normalize() to normalize the string to a specific unicode normalization form.
