@@ -50,3 +50,49 @@ Brute Force
 - min height = min(min_height, j)
 - max area = max(max_area, min_height * (j - i + 1))
 - But this is O(n^2) which is too slow
+- The fastest solution is below
+```
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        """
+            use a monotonic stack
+            the idea is that having an increasing size
+            of rectangles in the stack will tell you that the max
+            rectangle size is current rectangle * number of rectangles
+            between the left and right side.
+            
+            Once a smaller rectangle is placed, then you can do the calculation
+            mentioned above.
+            
+            If after going through the rectangles, there are some left in the stack
+            then pop it off and calculate rectangle size from end to the first rectangle
+            that is smaller than it.
+        """
+        stack = []
+        length = len(heights)
+        best = 0
+        
+        for index in range(length):
+            if not stack or heights[stack[-1]] < heights[index]:
+                stack.append(index)
+                continue
+            
+            while stack and heights[stack[-1]] > heights[index]:
+                top_index = stack.pop()
+                height = heights[top_index]
+                next_index = stack[-1] if stack else -1
+                rectangle = height * (index - next_index - 1)
+                best = max(best, rectangle)
+            
+            stack.append(index)
+
+        while stack:
+            top_index = stack.pop()
+            height = heights[top_index]
+            next_index = stack[-1] if stack else -1
+            rectangle = (length - 1 - next_index) * height 
+            best = max(best, rectangle)
+    
+        return best
+        
+```
