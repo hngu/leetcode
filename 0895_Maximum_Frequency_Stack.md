@@ -39,7 +39,17 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 At most 2 * 10^4 calls will be made to push and pop.
 It is guaranteed that there will be at least one element in the stack before calling pop.
 ```
+
+**Tags**
+- revisit
+
 ### Solution
+My first intuition was to use a heap, but not sure how to handle ordering of elements in the event of a tie
+
+LeetCode Solution is to use a "stack of stack":
+- have a mapping of freq -> stack to group frequency of values together. When two values have the same frequencies, you push the latest one so it will be popped off later 
+- how do you know what to pop off of this "stack"? Maintain a max frequency value
+- Also need a freq map to keep track the freq of a value at any given time.
 ```
 class FreqStack:
     """
