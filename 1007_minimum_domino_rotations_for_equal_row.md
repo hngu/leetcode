@@ -1,4 +1,5 @@
 ### 1007. Minimum Domino Rotations For Equal Row
+Medium
 
 In a row of dominoes, A[i] and B[i] represent the top and bottom halves of the ith domino.  (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)
 
@@ -33,6 +34,8 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 2 <= A.length == B.length <= 2 * 104
 1 <= A[i], B[i] <= 6
 ```
+**Tags**
+- revisit
 
 ### Solution:
 - This is a very good problem!
