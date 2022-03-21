@@ -17,3 +17,4 @@ https://www.youtube.com/watch?v=tv-_1er1mWI
 ## Observer
 ## Mediator
 ## State
+## Strategy
