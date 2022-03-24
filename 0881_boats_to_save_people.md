@@ -34,7 +34,12 @@ Explanation: 4 boats (3), (3), (4), (5)
 1 <= people[i] <= limit <= 30000
 ```
 
+**Tags**
+- Revisit
+- Greedy
+
 ### Solution:
+- Edit: just take the heaviest and lightest person
 - Very deceptive problem, lots of cases to consider.
 ```
 class Solution:
@@ -78,5 +83,32 @@ class Solution:
             total += 1
 
         return total
+        
+```
+Better solution
+```
+class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
+        """
+            sort the list
+            then starting from the heaviest,
+            see if you can add this person
+            if you can, see if you can add the lightest person
+            if you cannot, then return with one person boat
+            otherwise, return with heavy and lightest person in one boat
+        """
+        boats = 0
+        people = collections.deque(sorted(people))
+        
+        while people:
+            # take heaviest
+            first = people.pop()
+            diff = limit - first
+            if people and diff > 0 and people[0] <= diff:
+                people.popleft()
+            boats += 1
+        
+        return boats
+                
         
 ```
