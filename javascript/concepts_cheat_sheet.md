@@ -18,6 +18,7 @@
 
 ## Closures
 - Allows a inner function to recall variables declared in a outer function even after the outer function finishes execution.
+- Functional programming uses closures to store state while classes use "this" to attach state variables.
 
 ## Prototypes and Inheritance
 - Every object has a prototype object that can be used to store inherited properties
