@@ -1,4 +1,5 @@
 ### 1029. Two City Scheduling
+Medium
 
 A company is planning to interview `2n` people. Given the array costs where `costs[i] = [aCosti, bCosti]`, the cost of flying the 
 `ith` person to city `a` is `aCosti`, and the cost of flying the `ith` person to city `b` is `bCosti`.
@@ -31,7 +32,11 @@ Input: costs = [[515,563],[451,713],[537,709],[343,819],[855,779],[457,60],[650,
 Output: 3086
 ```
 
+**Tags**
+- Revisit
+
 ### Solution:
+I used DP but the easiest solution is in the JS code below.
 ```
 /**
  * @param {number[][]} costs
@@ -54,4 +59,44 @@ var twoCitySchedCost = function(costs) {
 	}
 	return minCost;
 };
+```
+Slow, DP version
+```
+class Solution:
+    def twoCitySchedCost(self, costs: List[List[int]]) -> int:
+        """
+            use top down dp
+        """
+        length = len(costs)
+        n = length // 2
+        top = float('inf')
+        matrix = {}
+        
+        def recurse(index, a, b):
+            if index == length:
+                return 0
+            key = (index, a, b)
+            
+            if key in matrix:
+                return matrix[key]
+            
+            cost = costs[index]
+            
+            # can I pick a?
+            if a > 0:
+                costA = cost[0] + recurse(index + 1, a - 1, b)
+            else:
+                costA = top
+            
+            # can I pick b?
+            if b > 0:
+                costB = cost[1] + recurse(index + 1, a, b - 1)
+            else:
+                costB = top
+                
+            matrix[key] = min(costA, costB)
+            return matrix[key]
+        
+        return recurse(0, n, n)
+        
 ```
