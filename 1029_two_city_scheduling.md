@@ -37,6 +37,8 @@ Output: 3086
 
 ### Solution:
 I used DP but the easiest solution is in the JS code below.
+Another way to solve it is to sort by the differences of going to city A vs city B. If it is cheaper to go to city B, then go to city B!
+When you sort by the difference, the first half should go to city B, and the second half should go to city A.
 ```
 /**
  * @param {number[][]} costs
