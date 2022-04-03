@@ -41,6 +41,7 @@ Output: 4
 - binary search
 
 ### Solution
+- There are two solutions: DP and Binary Search
 ```
 class Solution:
     def splitArray(self, nums: List[int], m: int) -> int:
@@ -97,4 +98,49 @@ class Solution:
         
         return recurse(0, m)
         
+```
+Binary Search
+```
+class Solution:
+    def splitArray(self, nums: List[int], m: int) -> int:
+        """
+            We use binary search and guess the answer
+            The low value is the max number in the array.
+            The high value is the sum of all numbers in the array.
+            
+            We guess the answer is in the middle of those two values.
+            
+            To verify the guess is correct, we do this:
+            - break up the array so that each subarray is at most the middle value
+            - if the count of those subarrays is less than m, then it is too high
+            - if the count of those subarrays is more than m, then it is too low
+            
+            Ok we found an answer where we matched m, set that as the new high
+            and see if we can go lower.
+            
+            Return high
+        """
+        low = max(nums)
+        high = sum(nums)
+        
+        while low < high:
+            middle = (low + high) // 2
+            
+            total = 0
+            count = 1
+            
+            for num in nums:
+                if total + num <= middle:
+                    total += num
+                else:
+                    total = num
+                    count += 1
+                
+            if count > m:
+                low = middle + 1
+            else:
+                high = middle
+        
+        return high
+            
 ```
