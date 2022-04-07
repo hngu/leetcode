@@ -1,4 +1,5 @@
 ### 1046. Last Stone Weight
+Easy
 
 We have a collection of stones, each stone has a positive integer weight.
 
