@@ -9,6 +9,12 @@
 - declarations are hoisted, not initializations
 - `var` variables are hoisted
 
+## var vs let vs const
+- `let` and `const` are not hoisted
+- `let` and `const` are scoped within the block they are declared
+- `const` cannot be used in a traditional for loop because the counter declared once and is used in the for loop scope of incrementing. `const` can be used in `for..in` or `for..of`
+- `const` variables must be initialized and cannot be reassigned to something else. Also its value cannot change.
+
 ## The `this` keyword
 - It refers to an object and what that object refers to depends on how it is called or used.
 - If an object calls its methods and the method has a `this` keyword, then it refers to the object.
