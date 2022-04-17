@@ -42,3 +42,6 @@
 ## Unicode
 - JS strings should be treated as a sequence of code units, not a sequence of symbols. Each character can be represented by one or more code units.
 - Use string.normalize() to normalize the string to a specific unicode normalization form.
+
+## Dependency Injection
+It provides the objects that an object needs to function, instead of having that object construct itself. Basically, pass in instances of an object to another object instead of that object creating those object instances. Very useful for testing since you can inject mocked instances
