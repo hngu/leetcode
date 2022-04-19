@@ -46,6 +46,8 @@ The number of nodes in the tree is in the range [2, 1000].
 Follow up: A solution using O(n) space is pretty straight-forward. Could you devise a constant O(1) space solution?
 
 ### Solution
+My solution is brute force, taking O(n) space, O(n log n) time.
+There is a O(1) space, O(n) time solution.
 ```
 /**
  * Definition for a binary tree node.
