@@ -3,10 +3,22 @@ https://www.youtube.com/watch?v=tv-_1er1mWI
 
 # Creational
 ## Singleton
+- Only one instance of that object can be created
+- Usually there is a `getInstance` static method to get the instance
+- Good for something like a database instance. You only need one.
 ## Prototype
+- Create clones of an instance
+- Grab functionality from an existing object
+- Is it different from classical inheritance by creating a flat, single hierachy called prototype chaining
+- JS supports Prototype inheritance
 ## Builder
+- Instead of requiring the consumer to create an object with the specified parameters, you can defer it
+- Makes it flexible if you need to add more properties to the object and updating all the consumers to pass in another parameter
+- You add functions to set the parameters later. These functions will return `this` to setup method chaining
+- Hard to know if the object is really fully instantiated and you can hit NPEs in your other methods
 ## Factory
-
+- Use something else to get you an instance of an object
+- Factories usually create various instances of classes that are very alike. For example - a factory for creating android vs ios buttons for your React Native project. You can ask the factory and it will just return the correct button and that logic is abstracted to the factory instead of sprinkling if/else all over the code base.
 
 # Structural
 ## Fascade
