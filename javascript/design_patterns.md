@@ -33,7 +33,17 @@ https://www.youtube.com/watch?v=tv-_1er1mWI
 
 # Behavioral
 ## Iterator
+- A way to traverse some data structure
+- Classic examples include LinkedList Iterator, Tree Iterator
+- will have methods like `next()` and `hasNext()`
+
 ## Observer
+- An object can subscribe to events from another object
+- An analogy would be that the radio control tower is the object sending events, and clients are objects receiving events
+- It is a one to many relationship
+- the clients subscribe to events in the radio tower and when a radio tower wants to send events, it broadcast this to all subscribers
+- websockets in JS implement observer pattern
+
 ## Mediator
 ## State
 ## Strategy
