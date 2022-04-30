@@ -22,7 +22,14 @@ https://www.youtube.com/watch?v=tv-_1er1mWI
 
 # Structural
 ## Fascade
+- Hide low level details behind an object and its methods
+- a great example is jQuery. It is a fascade that hides a lot of low level JS DOM manipulation to present a set of simplified DOM APIs to use
 ## Proxy
+- Substitute an object with another object called a proxy.
+- You can use it to intercept changes to the object to trigger side effects before actually calling the original object
+- Flow: client -> proxy -> original object instead of client -> original object
+- JS has a Proxy object
+- Use cases include: caching, access checking, additional logic checking before hitting the real object, triggering side effects
 
 # Behavioral
 ## Iterator
