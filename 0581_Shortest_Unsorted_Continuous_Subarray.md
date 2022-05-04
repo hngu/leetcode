@@ -32,7 +32,11 @@ Output: 0
 
 Follow up: Can you solve it in O(n) time complexity?
 
+**Tags**
+- stack
+
 ### Solution
+I solved it with sorting. You can solve it with a stack. Don't know how though.
 ```
 /**
  * @param {number[]} nums
