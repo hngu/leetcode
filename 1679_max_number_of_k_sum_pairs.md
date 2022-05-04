@@ -28,9 +28,9 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.
 
 **Constraints:**
 ```
-1 <= nums.length <= 105
-1 <= nums[i] <= 109
-1 <= k <= 109
+1 <= nums.length <= 10^5
+1 <= nums[i] <= 10^9
+1 <= k <= 10^9
 ```
 
 ### Solution:
