@@ -33,6 +33,8 @@ Output: [[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]
 It is guaranteed that the queue can be reconstructed.
 ```
 
+**Tags**
+- Revisit
 
 ### Solution
 ```
