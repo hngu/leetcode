@@ -12,8 +12,8 @@ Use these for coding interview prep. If you have questions, comments or suggesti
 
 - Go with the naive algorithm first! You want to gain some intuition and make sure you understand the problem fully.
 - Then think about optimizations.
-- Ask the interviewer if you are on the right path. Asking for hints if necessary.
-- Think about various inputs and outputs. Think about edge cases as well. Examples include - empty string, 0, false, weird punctuations for string problems, Large inputs, small inputs, etc.
+- Ask the interviewer if you are on the right path and ask for hints if you are stuck.
+- Think about various inputs and outputs. Think about edge cases as well. Examples include - empty string, 0, false, weird punctuations for string problems, large inputs, small inputs, etc.
 - Write up psuedocode if necessary to convey your idea to the interviewer. That way, the interviewer can verify your high level solution before implementation.
 - After you finish coding the solution, test it out.
 - Finally, examine the space and time complexity of your solution.
