@@ -2,6 +2,12 @@
 
 A collection of leetcode problems written in JavaScript or Python.
 
+## Intro
+
+Over a course of 2 years, I recorded as many leetcode problems to help me in coding interviews and to win 5000 leetcode points for a t-shirt. I found that recording them here with my thought process was easier than reading leetcode explanations online.
+
+Use these for coding interview prep. If you have questions, comments or suggestions feel free to post an issue in github!
+
 ## Overall Approach
 
 - Go with the naive algorithm first! You want to gain some intuition and make sure you understand the problem fully.
