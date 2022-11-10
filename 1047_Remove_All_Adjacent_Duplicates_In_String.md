@@ -23,11 +23,27 @@ Output: "ay"
 
 **Constraints:**
 ```
-1 <= s.length <= 105
+1 <= s.length <= 10^5
 s consists of lowercase English letters.
 ```
 
 ### Solution
+Python:
+```
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
+        stack = []
+
+        for char in s:
+            if stack and stack[-1] == char:
+                stack.pop()
+                continue
+            stack.append(char)
+        
+        return "".join(stack)
+```
+
+Java:
 ```
 class Solution {
     public String removeDuplicates(String s) {
