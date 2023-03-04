@@ -29,6 +29,8 @@ For the purpose of this problem, we will return `0` when `needle` is an empty st
 
 ## Solution
 
+An easier way to think about it is creating a sliding window until you find the needle in the haystack. Complexity of that is `O(m * n)` where `m` is the length of the needle and `n` is the length of the haystack.  
+
 My solution:
 - First, if the needle has zero length, return 0
 - Then have a pointer for each string
