@@ -40,7 +40,7 @@ Explanation: All elements of the array are distinct, so we can keep all of them 
 
 ### Solution
 - 1st approach: create a frequency table. Then iterate nums and count the frequency. Then create a matrix bucket the numbers based on frequency. This is O(nk) where n is the length of nums and k is the highest frequency value.
-- 2nd approach: as you create the frequency table, add it to the matrix. Use the current freq value as a way to find the correct bucket. Also, have a max frequency so you know when to create a new array to add to the matrix.
+- 2nd approach: as you create the frequency table, add it to the matrix. Use the current freq value as a way to find the correct bucket. Also, have a max frequency so you know when to create a new array to add to the matrix. This is O(n) time.
 
 ```
 /**
