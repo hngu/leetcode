@@ -22,3 +22,4 @@
 - Be careful of parsing strings that contains numbers. A number can be multidigit like: `123+456`
 - Word ladder hard: create a graph using a hashmap of pattern -> list of candidates like: `patterns[h*t] = [hot, hit]`. Also, you can use the count data structure as a way to check if you visited a node and skip processing.
 - Stack trick: you can use a counter to store relative order of elements. When an element is pushed, it will always have a higher counter than any other element that is already pushed in the stack. This can be useful in storing elements from a stack in a heap.
+- Easy array item removal: if the order doesn't matter, you can switch the item you want to remove in the middle of the list, with the last item of the list, and then pop. No need to worry about reordering. 
