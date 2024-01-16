@@ -31,11 +31,17 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 **Constraints:**
 ```
 -2^31 <= val <= 2^31 - 1
-At most 2 * 105 calls will be made to insert, remove, and getRandom.
+At most 2 * 10^5 calls will be made to insert, remove, and getRandom.
 There will be at least one element in the data structure when getRandom is called.
 ```
 
 ### Solution
+To solve for insert and remove in O(1) time, we should use a map to quickly find the element we need and do the necessary inserts/deletes from the map.
+
+The difficulty now is the getRandom in O(1) time. This problem is similar to LRU cache where we need multiple data structures to solve this problem. If we only need to just get a random item with equal probability we can just put the items in a list and pick a random index. We can store the lookup -> index in the array. That will help with inserts (insert it to the end of the list) and getrandom as we know the length of the list and we can quickly pick an index and return that.
+
+For removal, use the same trick in LRU cache where you find the item via the map, then switch places with the last item on the list for easier removal.
+
 ```
 class RandomizedSet:
 
