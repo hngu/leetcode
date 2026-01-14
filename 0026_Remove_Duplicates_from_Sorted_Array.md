@@ -84,6 +84,10 @@ class Solution:
         return marker
 ```
 LeetCode Solution
+The idea is to find the first unique element and mark it where it would be.
+The first element will be in the correct place, so start the insert index 1.
+Then go through the array, starting at index 1 to find the next unique element. If you find it, copy it to the insert index and then increment the insert index.
+
 You have an insertIndex that keeps track of which index to insert unique values
 To find a unique value, compare your current number to the previous number. If they are different, update number at insertIndex with current number.
 ```
