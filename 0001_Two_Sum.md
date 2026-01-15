@@ -46,6 +46,8 @@ A better way:
 - Create a hash table of num -> index
 - Then iterate array again and get target - num
 - If it exists in the hash table and it does not equal to current index, then we have a match!
+
+You don't have to build the hash table right away. You can go through each num and calculate the difference. If the difference is not in the hash table (meaning I haven't encountered it yet) then store the current num's index into the hash table.
 ```
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
