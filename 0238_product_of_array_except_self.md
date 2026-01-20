@@ -15,10 +15,12 @@ Follow up:
 Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
 
 ### Solution:
-- create a product array multiplying numbers from the left
-- create a product array multiplying numbers from the right
-- iterate through the array and use that to get the product of array except self
-- HOWEVER, below is a constant space solution
+- create a product array multiplying numbers from the left (prefix array)
+- create a product array multiplying numbers from the right (postfix array)
+- iterate through the array and get the prefix product and multiply by postfix product
+- HOWEVER, below is a constant space solution.
+- Instead of creating 2 arrays for prefix and postfix arrays, you can compute the prefix and postfix values as you iterate. This uses the answer array to store the prefix array values first, then iterating the array backwards to get the postfix value.
+- You would need a cumulator for the prefix value and the postfix value
 ```
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
