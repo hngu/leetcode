@@ -35,6 +35,8 @@ n == height.length
 - two pointer
 
 ### Solution
+Realize that you can choose any two heights and ignore any heights in between to form your container.
+
 First, we check the widest possible container starting from the first line to the last one. Next, we ask ourselves, how is it possible to form an even bigger container? Every time we narrow the container, the width becomes smaller so the only way to get a bigger area is to find higher lines. So why not just greedily shrink the container on the side that has a shorter line? Every time we shrink the container, we calculate the area and save the maximum.
 ```
 class Solution:
