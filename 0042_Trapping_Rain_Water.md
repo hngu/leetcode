@@ -29,6 +29,8 @@ n == height.length
 - array
 
 ### Solution
+The amount of water that can be trapped is determined by the left wall, right wall, and current height.
+For something like `[2, 0, 3]`, the amount of water trapped is `min(left_wall, right_wall) - current_height` so the answer here is 2.
 ```
 class Solution:
     def trap(self, height: List[int]) -> int:
