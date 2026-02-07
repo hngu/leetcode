@@ -28,6 +28,19 @@ There are a few ways to do this:
 - Create an array of max prices to the right of a price and get the max difference between the price, and max price to the right of it. O(n) time, O(n) space
 - Maintain a minStock price and see if subtracting the minStock from the current price is the max. O(n) time, O(1) space.
 
+The idea with the optimized solution is that the best profit is done from buying at at the lowest price and selling at the highest price.
+
+If you have something like this:
+[2, 1, 6]
+
+You select the min price between [2, 1] because later you will sell at whatever max is set in the future.
+
+If you have something like this:
+
+[2, 6, 1, 4]
+
+You have to keep track of the max profit because the max price may already occurred before a new min price is set.
+
 ### Brute Force:
 ```
 /**
