@@ -96,4 +96,35 @@ class Solution:
 ```
 
 ### Better Solution:
-- Use a sliding window approach. Have pointers, i, j and slide j. If j is not unique, then move i. Max would be max(max, j - i).
+- Use a sliding window approach. Have pointers, i, j and slide j. If j is not unique, then move i. Max would be max(max, j - i + 1).
+```
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let ptr1 = 0;
+    let ptr2 = 1;
+    let lookupSet = new Set();
+    let maxCount = 1;
+
+    if (s.length < 2) {
+        return s.length;
+    }
+
+    lookupSet.add(s.charAt(ptr1));
+
+    while (ptr2 < s.length) {
+        if (!lookupSet.has(s.charAt(ptr2))) {
+            lookupSet.add(s.charAt(ptr2));
+            maxCount = Math.max(maxCount, ptr2 - ptr1 + 1);
+            ptr2 += 1;
+        } else {
+            lookupSet.delete(s.charAt(ptr1));
+            ptr1 += 1;
+        }
+    }
+
+    return maxCount;
+};
+```
