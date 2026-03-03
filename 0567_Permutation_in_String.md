@@ -29,6 +29,7 @@ s1 and s2 consist of lowercase English letters.
 - Revisit
 
 ### Solution
+The tricky part is knowing how to update the window. One might think you can just move the left and right pointers while updating the counters. When moving the left pointer, just need to subtract count then move left pointer. For right pointer, move pointer then add count. 
 ```
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
@@ -69,4 +70,45 @@ class Solution:
             prev_index += 1
         
         return False
+```
+JS Solution
+```
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
+ */
+var checkInclusion = function(s1, s2) {
+    let s1Counter = Array(26).fill(0);
+    let s2Counter = Array(26).fill(0);
+    let left = 0;
+    let right = 0;
+
+    for (const char of s1) {
+        s1Counter[char.charCodeAt() - 97] += 1;
+    }
+    
+    while (right < s1.length) {
+        s2Counter[s2.charAt(right).charCodeAt() - 97] += 1;
+        right += 1;
+    }
+    right -= 1;
+    
+    while (right < s2.length) {
+        console.log(s1Counter, s2Counter, left, right);
+        if (s1Counter.every((num, index) => num === s2Counter[index])) {
+            return true;
+        }
+        if (right === s2.length - 1) {
+            break;
+        }
+        s2Counter[s2.charAt(left).charCodeAt() - 97] -= 1;
+        left += 1;
+
+        right += 1;
+        s2Counter[s2.charAt(right).charCodeAt() - 97] += 1;
+    }
+
+    return false;
+};
 ```
